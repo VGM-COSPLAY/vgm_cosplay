@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VGM Cosplay</title>
+
+<style>
+.back-btn {
+    display: inline-block;
+    margin: 20px;
+    padding: 10px 25px;
+    background-color: #ffcc00;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.back-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255,204,0,0.6);
+}
+
+body {
+
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: #fff;
+
+}
+.prestations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.prestation {
+    background: #111;
+    width: 300px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.prestation:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 35px rgba(255,255,255,0.4);
+}
+
+.prestation img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.prestation h3 {
+    margin: 10px 0;
+}
+
+.prestation p {
+    font-size: 0.95em;
+    color: #ccc;
+}
+
+
+header {
+    background: #111;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.burger {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #111;
+    width: 220px;
+}
+
+nav a {
+    padding: 15px;
+    border-bottom: 1px solid #333;
+    color: #fff;
+    text-decoration: none;
+}
+
+.section {
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.card {
+    background: #111;
+    width: 260px;
+    padding: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 15px rgba(211,17,237,0.15);
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(211,17,237,0.4);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    font-size: 0.9em;
+    color: #ededed;
+    margin-top: 10px;
+}
+
+.card.active .details {
+    max-height: 300px;
+}
+
+footer {
+    background: #111;
+    padding: 30px;
+    text-align: center;
+    color: #aaa;
+}
+</style>
+</head>
+
+<body>
+<a href="index.html" class="back-btn">← Retour à l’accueil</a>
+<header>
+    <div class="logo">VGM COSPLAY</div>
+    <div class="burger" onclick="toggleMenu()">☰</div>
+    <nav id="menu">
+        <a href="#costumes">Costumes</a>
+        <a href="#prestations">Prestations</a>
+        <a href="#salons">Salons</a>
+        <a href="#collaboration">Collaboration</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="section" id="costumes">
+<h2>Nos Costumes</h2>
+
+<div class="cards">
+
+<div class="card"><img src="images/le devoreur de monde.jpg"><h3>Galactus</h3><div class="details">Colosse venu des confins de l'univers, ce personnage impose par son aura cosmique. Puissant mais toujours bienveillant avec le public, il ne laisse personne indifférent.</div></div>
+
+<div class="card"><img src="images/robot geant.jpg"><h3>Robot Géant</h3><div class="details">Gardien métallique venu des étoiles, ce robot géant incarne force et protection. Imposant mais accessible, il impressionne toutes les générations grâce à son allure héroïque et son énergie inspirante.</div></div>
+
+<div class="card"><img src="images/halloween jack.jpg"><h3>Halloween Jack</h3><div class="details">Avec son sourire citrouille et son air espiègle, Halloween Jack incarne l'esprit malicieux d'octobre. Un personnage parfait pour des animations festives et amusantes.</div></div>
+
+<div class="card"><img src="images/santa jack.jpg"><h3>Santa Jack</h3><div class="details">Version hivernale de Jack, Santa Jack apporte la magie de Noël.. sur échasses! Son style unique mélange féerie, élégance et une ointe d'humour.</div></div>
+
+<div class="card"><img src="images/ryujin.jpg"><h3>Ryujin – Dragon chinois</h3><div class="details">Symbole de puissance et de prospérité, Ryujin impressionne par sa prestance et ses mouvements ondulants. Un numéro lumineux et spectaculaire.</div></div>
+
+<div class="card"><img src="images/bao.jpg"><h3>Bao – Lion chinois</h3><div class="details">Avec sa danse colorée et son énergie communicative, Bao apporte chance et joie là où il passe. Une animation vibrante, parfaite pour les événements festifs.</div></div>
+
+<div class="card"><img src="images/renard a 9 queues.jpg"><h3>Renard à neuf queues</h3><div class="details">Créature mystique venue des légendes d'Orient, ce renard à neuf queues fascine par son élégance et sa puissance. Un personnage visuellement spectaculaire, apprécié des enfants comme des adultes.</div></div>
+
+<div class="card"><img src="images/le prince des cauchemars.jpg"><h3>Prince des Cauchemars</h3><div class="details">Majestueuse figure des nuits agitées, le Prince des Cauchemars règne sur un royaume où l'imaginaire prend vie. Impressionnant mais jamais effrayant, il apporte une ambiance mystérieuse et captivante, parfaite pour les événements à thème fantastique ou Halloween.</div></div>
+
+<div class="card"><img src="images/dieu de la mort.jpg"><h3>Dieu de la Mort</h3><div class="details">Figure majestueuse entre le monde des vivants et celui des esprits, ce personnage veille dans un silence solennel. Une présence forte, intrigante, mais toujours adaptée au tout public.</div></div>
+
+<div class="card"><img src="images/le slenderman.jpg"><h3>Slenderman</h3><div class="details">« L'Homme Sans Visage >> Silhouette élancée venue des ombres, Slenderman impressionne</div></div>
+
+<div class="card"><img src="images/pirate musicien.jpg"><h3>Personnage à l'allure élégante et pleine de charme, ce pirate squelettique traverse les mers au rythme de sa musique entraînante. Drôle, surprenant et toujours prêt à divertir, il apporte une touche d'humour et de fantaisie à chaque événement.</div></div>
+
+
+
+
+
+
+
+</div>
+</section>
+
+<section class="section" id="prestations">
+    <h2>Prestations</h2>
+    <p>
+        VGM Cosplay propose des animations spectaculaires sur échasses et en déambulation,
+        adaptées à tous types d’événements, publics comme privés.
+    </p>
+
+    <div class="prestations">
+
+        <div class="prestation">
+            <img src="images/salon.jpg" alt="Animation en salon">
+            <h3>Salons & Conventions</h3>
+            <p>
+                Déambulation, interactions avec le public, animations scéniques et
+                mise en valeur de votre événement pop culture, manga ou geek.
+            </p>
+        </div>
+
+        <div class="prestation">
+            <img src="images/anniversaire.jpg" alt="Animation anniversaire">
+            <h3>Anniversaires</h3>
+            <p>
+                Une animation immersive et magique pour petits et grands,
+                avec des personnages impressionnants et accessibles.
+            </p>
+        </div>
+
+        <div class="prestation">
+            <img src="images/soiree.jpg" alt="Animation soirée événementielle">
+            <h3>Soirées & Événementiel</h3>
+            <p>
+                Performances visuelles, déambulation élégante et présence marquante
+                pour soirées privées, inaugurations ou événements d’entreprise.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="section" id="salons">
+<h2>Salons & Conventions</h2>
+<p>Présence sur événements pop culture et geek.</p>
+</section>
+
+<section class="section" id="collaboration">
+<h2>Collaboration – Infinix Crxw</h2>
+<p>
+Collaboration artistique mêlant cosplay, technologie et immersion événementielle.
+</p>
+</section>
+
+<section class="section" id="contact">
+    <h2>Contact</h2>
+    <p>Retrouvez-nous sur les réseaux sociaux :</p>
+    <p>
+        <a href="https://www.instagram.com/vgm_cosplay/" target="_blank">Instagram</a> |
+        <a href="https://www.facebook.com/ginobinohc" target="_blank">Facebook</a> |
+        <a href="https://www.tiktok.com/@vgm_cosplay" target="_blank">TikTok</a> |
+        <a href="https://www.youtube.com/@VGMCOSPLAY" target="_blank">YouTube</a>
+    </p>
+    <p>Ou contactez-nous par email : 
+        <a href="mailto:vgm_cosplay@outllok.fr">vgm_cosplay@outlook.fr</a>
+    </p>
+</section>
+
+
+<footer>
+© 2025 VGM COSPLAY
+</footer>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
+
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+        card.classList.toggle('active');
+    });
+});
+</script>
+
+</body>
+</html>
