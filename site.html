@@ -6,6 +6,55 @@
 <title>VGM Cosplay</title>
 
 <style>
+.logos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    align-items: center;
+}
+
+.logo-card {
+    background: #111;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(255,255,255,0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.logo-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255,255,255,0.4);
+}
+
+.logo-card img {
+    max-width: 100%;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+.collaboration-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.collaboration-card {
+    width: 300px;
+    text-align: center;16:29 29/12/2025
+}
+
+.collaboration-card img {
+    width: 100%;
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
 .back-btn {
     display: inline-block;
     margin: 20px;
@@ -158,6 +207,49 @@ footer {
     text-align: center;
     color: #aaa;
 }
+
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+.contact-icons a img {
+    width: 60px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-icons a img:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
+}
+
+.qr-container {
+    margin-top: 40px;
+}
+
+.qr-container img {
+    width: 180px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+.contact-infos {
+    margin-top: 30px;
+    font-size: 1.05em;
+}
+
+.contact-infos a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+.contact-infos a:hover {
+    text-decoration: underline;
+}
+
 </style>
 </head>
 
@@ -180,17 +272,13 @@ footer {
 
 <div class="cards">
 
-<div class="card"><img src="images/le devoreur de monde.jpg"><h3>Galactus</h3><div class="details">Colosse venu des confins de l'univers, ce personnage impose par son aura cosmique. Puissant mais toujours bienveillant avec le public, il ne laisse personne indifférent.</div></div>
+<div class="card"><img src="images/le devoreur de monde.jpg"><h3>Le dévoreur de Monde</h3><div class="details">Colosse venu des confins de l'univers, ce personnage impose par son aura cosmique. Puissant mais toujours bienveillant avec le public, il ne laisse personne indifférent.</div></div>
 
 <div class="card"><img src="images/robot geant.jpg"><h3>Robot Géant</h3><div class="details">Gardien métallique venu des étoiles, ce robot géant incarne force et protection. Imposant mais accessible, il impressionne toutes les générations grâce à son allure héroïque et son énergie inspirante.</div></div>
 
 <div class="card"><img src="images/halloween jack.jpg"><h3>Halloween Jack</h3><div class="details">Avec son sourire citrouille et son air espiègle, Halloween Jack incarne l'esprit malicieux d'octobre. Un personnage parfait pour des animations festives et amusantes.</div></div>
 
 <div class="card"><img src="images/santa jack.jpg"><h3>Santa Jack</h3><div class="details">Version hivernale de Jack, Santa Jack apporte la magie de Noël.. sur échasses! Son style unique mélange féerie, élégance et une ointe d'humour.</div></div>
-
-<div class="card"><img src="images/ryujin.jpg"><h3>Ryujin – Dragon chinois</h3><div class="details">Symbole de puissance et de prospérité, Ryujin impressionne par sa prestance et ses mouvements ondulants. Un numéro lumineux et spectaculaire.</div></div>
-
-<div class="card"><img src="images/bao.jpg"><h3>Bao – Lion chinois</h3><div class="details">Avec sa danse colorée et son énergie communicative, Bao apporte chance et joie là où il passe. Une animation vibrante, parfaite pour les événements festifs.</div></div>
 
 <div class="card"><img src="images/renard a 9 queues.jpg"><h3>Renard à neuf queues</h3><div class="details">Créature mystique venue des légendes d'Orient, ce renard à neuf queues fascine par son élégance et sa puissance. Un personnage visuellement spectaculaire, apprécié des enfants comme des adultes.</div></div>
 
@@ -200,13 +288,18 @@ footer {
 
 <div class="card"><img src="images/le slenderman.jpg"><h3>Slenderman</h3><div class="details">« L'Homme Sans Visage >> Silhouette élancée venue des ombres, Slenderman impressionne</div></div>
 
-<div class="card"><img src="images/pirate musicien.jpg"><h3>Personnage à l'allure élégante et pleine de charme, ce pirate squelettique traverse les mers au rythme de sa musique entraînante. Drôle, surprenant et toujours prêt à divertir, il apporte une touche d'humour et de fantaisie à chaque événement.</div></div>
+<div class="card">
+    <img src="images/pirate musicien.jpg">
+    <h3>Pirate musicien</h3>
+    <div class="details">
+        Personnage à l'allure élégante et pleine de charme, ce pirate squelettique traverse les mers au rythme de sa musique entraînante. Drôle, surprenant et toujours prêt à divertir, il apporte une touche d'humour et de fantaisie à chaque événement.
+    </div>
+</div>
 
 
+<div class="card"><img src="images/bao.jpg"><h3>Bao – Lion chinois</h3><div class="details">Avec sa danse colorée et son énergie communicative, Bao apporte chance et joie là où il passe. Une animation vibrante, parfaite pour les événements festifs.</div></div>
 
-
-
-
+<div class="card"><img src="images/ryujin.jpg"><h3>Ryujin – Dragon chinois</h3><div class="details">Symbole de puissance et de prospérité, Ryujin impressionne par sa prestance et ses mouvements ondulants. Un numéro lumineux et spectaculaire.</div></div>
 
 </div>
 </section>
@@ -248,34 +341,160 @@ footer {
         </div>
 
     </div>
-</section>
-
-
 <section class="section" id="salons">
-<h2>Salons & Conventions</h2>
-<p>Présence sur événements pop culture et geek.</p>
+    <h2>Salons & Cinémas partenaires</h2>
+
+    <p>
+        VGM Cosplay a eu le plaisir d’intervenir lors de nombreux salons,
+        conventions et projections cinéma.
+    </p>
+
+    <div class="logos-container">
+
+        <div class="logo-card">
+		<a href="https://www.facebook.com/p/Wingeek-61552380356856/" target="_blank">
+            <img src="images/salons/salon1.png" alt="Salon 1">
+		</a>
+        </div>
+
+        <div class="logo-card">
+		<a href="https://www.instagram.com/lyscomix/" target="_blank">
+            <img src="images/salons/salon2.png" alt="Salon 2">
+		</a>
+        </div>
+
+        <div class="logo-card">
+		<a href="https://www.facebook.com/profile.php?id=61572938362625" target="_blank">
+            <img src="images/salons/salon3.png" alt="Salon 3">
+		</a>
+        </div>
+
+        <div class="logo-card">
+		<a href="https://www.summergeekfestival.be/" target="_blank">
+            <img src="images/salons/salon4.png" alt="Salon 4">
+		</a>
+        </div>
+
+        <div class="logo-card">
+		<a href="https://wintergeekfestival.be/" target="_blank">
+            <img src="images/salons/salon5.png" alt="Salon 5">
+		</a>
+        </div>
+
+        <div class="logo-card">
+		<a href="https://www.geek-days.com/lille/" target="_blank">
+            <img src="images/salons/salon6.png" alt="Salon 6">
+		</a>
+        </div>
+
+        <div class="logo-card">
+		<a href="https://www.facebook.com/events/1372325017139715/" target="_blank">
+            <img src="images/salons/salon7.png" alt="Salon 7">
+		</a>
+        </div>
+
+        <div class="logo-card">
+		<a href="https://www.facebook.com/profile.php?id=61558656386289" target="_blank">
+            <img src="images/salons/salon8.png" alt="Salon 8">	
+		</a>
+        </div>
+
+        <div class="logo-card">
+		<a href="https://henin-beaumont.cineville.fr/programmes/henin-beaumont" target="_blank">
+            <img src="images/salons/salon9.png" alt="Salon 9">
+		</a>
+        </div>
+
+    </div>
 </section>
+
 
 <section class="section" id="collaboration">
-<h2>Collaboration – Infinix Crxw</h2>
-<p>
-Collaboration artistique mêlant cosplay, technologie et immersion événementielle.
-</p>
+    <h2>Collaboration</h2>
+
+    <p>
+        Au-delà d’une prestation scénique théâtrale, l’Infinix Crxw s’associe à VGM Cosplay
+        pour booster l’énergie du spectacle.
+        <br><br>
+        Une collaboration pensée pour intensifier l’ambiance, enrichir la mise en scène
+        et marquer durablement le public.
+    </p>
+
+    <div class="collaboration-container">
+
+        <div class="collaboration-card">
+            <img src="images/infinix-1.jpg" alt="Danse en mode ninja">
+            <h3>Danse en mode ninja</h3>
+            <p>
+                Déambulation, interactions avec le public et animations scéniques
+                pour électriser le public.
+            </p>
+        </div>
+
+        <div class="collaboration-card">
+            <img src="images/infinix-2.jpg" alt="Danse thématique">
+            <h3>Danse thématique</h3>
+            <p>
+                Une animation immersive et rythmée, adaptée aux univers
+                pop culture et manga.
+            </p>
+        </div>
+
+        <div class="collaboration-card">
+            <img src="images/infinix-3.jpg" alt="Danse traditionnelle">
+            <h3>Danse traditionnelle</h3>
+            <p>
+                Performances visuelles puissantes et mise en scène dynamique
+                pour marquer les esprits.
+            </p>
+        </div>
+
+    </div>
 </section>
+
+
 
 <section class="section" id="contact">
     <h2>Contact</h2>
-    <p>Retrouvez-nous sur les réseaux sociaux :</p>
-    <p>
-        <a href="https://www.instagram.com/vgm_cosplay/" target="_blank">Instagram</a> |
-        <a href="https://www.facebook.com/ginobinohc" target="_blank">Facebook</a> |
-        <a href="https://www.tiktok.com/@vgm_cosplay" target="_blank">TikTok</a> |
-        <a href="https://www.youtube.com/@VGMCOSPLAY" target="_blank">YouTube</a>
-    </p>
-    <p>Ou contactez-nous par email : 
-        <a href="mailto:vgm_cosplay@outllok.fr">vgm_cosplay@outlook.fr</a>
-    </p>
+    <p>Suivez VGM Cosplay sur les réseaux sociaux :</p>
+
+    <div class="contact-icons">
+        <a href="https://www.instagram.com/vgm_cosplay/" target="_blank">
+            <img src="images/contact/instagram.png" alt="Instagram">
+        </a>
+
+        <a href="https://www.facebook.com/ginobinohc" target="_blank">
+            <img src="images/contact/facebook.png" alt="Facebook">
+        </a>
+
+        <a href="https://www.tiktok.com/@vgm_cosplay" target="_blank">
+            <img src="images/contact/tiktok.png" alt="TikTok">
+        </a>
+
+        <a href="https://www.youtube.com/@VGMCOSPLAY" target="_blank">
+            <img src="images/contact/youtube.png" alt="YouTube">
+        </a>
+    </div>
+
+    <div class="qr-container">
+        <p>🎥 Vidéo promotionnelle</p>
+        <a href="https://www.youtube.com/@VGMCOSPLAY" target="_blank">
+            <img src="images/contact/qr-video.png" alt="QR Code vidéo promotionnelle">
+        </a>
+    </div>
+
+    <div class="contact-infos">
+        <p>
+            📧 Email : 
+            <a href="mailto:vgm_cosplay@outlook.fr">vgm_cosplay@outlook.fr</a>
+        </p>
+        <p>
+            📞 Téléphone : 
+            <a href="tel:+33621595698">06 21 59 56 98</a>
+        </p>
+    </div>
 </section>
+
 
 
 <footer>
