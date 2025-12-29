@@ -6,6 +6,32 @@
 <title>VGM Cosplay</title>
 
 <style>
+.animation-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.animation {
+    background: #111;
+    width: 300px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.15); 
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.animation:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 35px rgba(255, 20, 147, 0.85);
+}
+
+.animation img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
 .logos-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -27,7 +53,7 @@
 
 .logo-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(255,255,255,0.4);
+    box-shadow: 0 0 30px rgba(0, 140, 255, 0.35);
 }
 
 .logo-card img {
@@ -43,16 +69,39 @@
     flex-wrap: wrap;
 }
 
+/* LA CARTE */
 .collaboration-card {
     width: 300px;
-    text-align: center;16:29 29/12/2025
+    text-align: center;
+    background: #111;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* HOVER = SHADOW + MOUVEMENT */
+.collaboration-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 
+        0 20px 40px rgba(255, 20, 147, 0.85),
+        0 0 30px rgba(255, 204, 0, 0.35);
+}
+
+/* IMAGE */
 .collaboration-card img {
     width: 100%;
+    display: block;
     border-radius: 12px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.4s ease;
 }
+
+/* ZOOM IMAGE */
+.collaboration-card:hover img {
+    transform: scale(1.05);
+}
+
+
 
 
 .back-btn {
@@ -99,7 +148,7 @@ body {
 
 .prestation:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 35px rgba(255,255,255,0.4);
+    box-shadow: 0 0 35px rgba(0, 140, 255, 0.35);
 }
 
 .prestation img {
@@ -180,7 +229,7 @@ nav a {
 
 .card:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(211,17,237,0.4);
+    box-shadow: 0 0 30px rgba(0, 255, 120, 0.35);
 }
 
 .card img {
@@ -223,7 +272,7 @@ footer {
 
 .contact-icons a img:hover {
     transform: scale(1.15);
-    box-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
+    box-shadow: 0 0 15px rgba(0, 255, 120, 0.35);
 }
 
 .qr-container {
@@ -259,12 +308,15 @@ footer {
     <div class="logo">VGM COSPLAY</div>
     <div class="burger" onclick="toggleMenu()">☰</div>
     <nav id="menu">
-        <a href="#costumes">Costumes</a>
-        <a href="#prestations">Prestations</a>
-        <a href="#salons">Salons</a>
-        <a href="#collaboration">Collaboration</a>
-        <a href="#contact">Contact</a>
-    </nav>
+    <a href="#costumes">Costumes</a>
+    <a href="#prestations">Prestations</a>
+    <a href="#animation">Animation Micro</a>
+    <a href="#ateliers">Ateliers</a>
+    <a href="#salons">Salons</a>
+    <a href="#collaboration">Collaboration</a>
+    <a href="#contact">Contact</a>
+</nav>
+
 </header>
 
 <section class="section" id="costumes">
@@ -341,6 +393,67 @@ footer {
         </div>
 
     </div>
+<section class="section" id="animation">
+    <h2>Animations Micro & Régie Sonore</h2>
+    <p>
+        VGM Cosplay propose des animations micro complètes pour vos événements :
+        jeux interactifs, conférences avec invités, planning détaillé sur tout le week-end.
+        Nous disposons également d'une régie sonore professionnelle pour garantir une ambiance optimale.
+    </p>
+
+    <div class="animation-container">
+        <div class="animation">
+            <img src="images/micro.jpg" alt="Animation Micro">
+            <h3>Animation Micro</h3>
+            <p>Jeux, conférences, planification d’événements et interactivité avec le public.</p>
+        </div>
+
+        <div class="animation">
+            <img src="images/regie.jpg" alt="Régie Sonore">
+            <h3>Régie Sonore</h3>
+            <p>Matériel professionnel pour assurer le son et l’ambiance de vos événements.</p>
+        </div>
+    </div>
+</section>
+
+
+<section class="section" id="ateliers">
+    <h2>Nos Ateliers</h2>
+
+    <div class="cards">
+        <div class="card">
+            <img src="images/atelier-papercraft.jpg" alt="Atelier Papercraft">
+            <h3>Atelier Papercraft</h3>
+            <div class="details">L'atelier de Paper Craft est une activité créative et ludique où les participants donnent vie à des objets en papier en les découpant, pliant et assemblant. Guidés par des modèles ou des instructions, les participants peuvent réaliser des créations variées, allant de simples animaux à des structures complexes comme des bâtiments ou des personnages. Cet atelier développe la précision, la patience et la coordination tout en stimulant l’imagination. Idéal pour les enfants, il offre un moment de détente et d’expression artistique, où chacun repart avec sa propre œuvre fabriquée à la main.</div>
+        </div>
+
+        <div class="card">
+            <img src="images/atelier-ombres-chinoises.jpg" alt="Atelier Fabrication d'Ombres Chinoises">
+            <h3>Atelier Fabrication d'Ombres Chinoises</h3>
+            <div class="details">L'atelier de fabrication d'ombres chinoises invite les enfants à plonger dans l'univers magique du théâtre d'ombres. Répartis en groupes, ils choisissent un thème parmi plusieurs propositions, puis imaginent une histoire à raconter. Chaque groupe conçoit et fabrique les personnages et les décors nécessaires en découpant des silhouettes dans du papier ou du carton noir. Une fois les créations terminées, ils apprennent à manipuler leurs ombres derrière un écran éclairé, donnant vie à leurs récits grâce à la lumière et au mouvement. Cet atelier stimule la créativité, la collaboration et l'expression artistique tout en offrant un moment unique d'imaginaire partagé.</div>
+        </div>
+
+        <div class="card">
+            <img src="images/atelier-oeufs-paques.jpg" alt="Atelier Peinture d'Oeufs de Pâques">
+            <h3>Atelier Peinture d'Oeufs de Pâques</h3>
+            <div class="details">L'atelier de peinture d'œufs de Pâques est une activité festive et colorée pour préparer la chasse aux œufs tant attendue du mois d'avril. Les participants, petits et grands, décorent des œufs en utilisant des pinceaux, des pochoirs et une palette de couleurs éclatantes. Ils peuvent ajouter des motifs joyeux, des paillettes ou même des autocollants pour personnaliser leurs créations. Cet atelier développe la créativité et offre un moment convivial autour de l’esprit de Pâques. Les œufs décorés seront ensuite utilisés pour embellir la chasse aux œufs, ajoutant une touche unique et personnelle à cette tradition printanière.</div>
+        </div>
+
+        <div class="card">
+            <img src="images/atelier-cosplay.jpg" alt="Atelier Cosplay – Thème au choix">
+            <h3>Atelier Cosplay – Thème au choix</h3>
+            <div class="details">L'atelier cosplay revient en 2025 avec encore plus de créativité et de liberté ! Après le succès de l'édition 2024 sur le thème d'Halloween, cette nouvelle session offre aux participants la possibilité de choisir leur propre thème selon une liste préétablie. Que ce soit pour créer des masques effrayants, des accessoires fantastiques ou des éléments inspirés de leurs personnages préférés, chacun pourra laisser libre cours à son imagination. Accompagnés par des animateurs, les participants apprendront à découper, modeler et peindre pour donner vie à leurs idées. Cet atelier ludique et artistique promet des créations uniques et des souvenirs mémorables pour tous les amateurs de cosplay !</div>
+        </div>
+
+        <div class="card">
+            <img src="images/atelier-stop-motion.jpg" alt="Atelier Stop Motion">
+            <h3>Atelier Stop Motion</h3>
+            <div class="details">
+L'atelier stop motion est une plongée dans l'univers du cinéma d'animation, où les participants créent leur propre mini-film en deux jours. Après avoir choisi un thème, ils fabriquent des personnages et des décors simples à partir de papier, de figurines ou de matériaux préconçus. Guidés à chaque étape, ils découvrent les bases de l'animation image par image à l'aide d'une application ou d'une caméra. Chaque mouvement prend vie à l'écran, transformant leur imagination en une histoire animée unique. Cet atelier ludique et créatif garantit des souvenirs inoubliables et des œuvres à partager avec fierté !</div>
+        </div>
+    </div>
+</section>
+
 <section class="section" id="salons">
     <h2>Salons & Cinémas partenaires</h2>
 
@@ -478,7 +591,7 @@ footer {
 
     <div class="qr-container">
         <p>🎥 Vidéo promotionnelle</p>
-        <a href="https://www.youtube.com/@VGMCOSPLAY" target="_blank">
+        <a href="https://www.youtube.com/watch?v=uxfgzuTlOak" target="_blank">
             <img src="images/contact/qr-video.png" alt="QR Code vidéo promotionnelle">
         </a>
     </div>
