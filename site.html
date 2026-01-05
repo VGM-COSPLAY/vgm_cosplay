@@ -16,7 +16,14 @@ body {
     background: #000;
     color: #fff;
 }
+/* =========================
+   MICRO-ANIMATIONS – BASE
+========================= */
 
+:root {
+    --anim-duration: 0.35s;
+    --anim-ease: ease-out;
+}
 .section {
     padding: 70px 20px;
     text-align: center;
@@ -81,6 +88,45 @@ nav a {
     border-bottom: 1px solid #333;
     color: #fff;
     text-decoration: none;
+}
+/* Conteneur flottant vertical */
+.contact-float-group {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* espace entre les boutons */
+    z-index: 200;
+}
+
+/* Boutons individuels */
+.contact-float {
+    background-color: #ffcc00;
+    color: #000;
+    padding: 12px 18px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9em;
+}
+
+/* Hover sur chaque bouton */
+.contact-float:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+}
+
+
+/* Légère animation au hover */
+.contact-float:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.35);
 }
 
 /* =========================
@@ -261,10 +307,14 @@ footer {
     padding: 20px;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform var(--anim-duration) var(--anim-ease),
+            box-shadow var(--anim-duration) var(--anim-ease);
     width: 260px;       
     box-sizing: border-box;
 }
+
+
+
 
 /* Largeurs spécifiques */
 .prestations .card-box,
@@ -272,21 +322,30 @@ footer {
 .collaboration-container .card-box {
     width: 300px;
 }
-
-/* Hover → lumière derrière shadow box */
+.card-box {
+    transform-style: preserve-3d;
+    perspective: 800px;
+    transition:
+        transform var(--anim-duration) var(--anim-ease),
+        box-shadow var(--anim-duration) var(--anim-ease);
+}
+/* Hover → box-shadow seulement */
 .card-box:hover {
-    transform: translateY(-6px);
     box-shadow:
         0 20px 40px rgba(20, 10, 147, 0.85),
         0 0 30px rgba(255, 50, 158, 0.93);
 }
+
+/* Curseur lumineux et tilt restent en CSS comme avant */
+
 
 /* Images à l'intérieur */
 .card-box img {
     width: 100%;
     display: block;
     border-radius: 12px;
-    transition: transform 0.4s ease;
+    transition: transform var(--anim-duration) var(--anim-ease);
+
 }
 
 .card-box:hover img {
@@ -361,6 +420,62 @@ footer {
         0 0 30px rgba(255, 50, 158, 0.93); /* lumière derrière comme shadowboxes */
 }
 
+/* =========================
+   APPARITION AU SCROLL
+========================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity var(--anim-duration) var(--anim-ease),
+        transform var(--anim-duration) var(--anim-ease);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* =========================
+   CURSEUR INTELLIGENT – CARDS
+========================= */
+
+.card-box {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Lumière */
+.card-box::before {
+    content: "";
+    position: absolute;
+    top: var(--y, 50%);
+    left: var(--x, 50%);
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+        circle,
+        rgba(208, 0, 236, 0.35),
+        transparent 60%
+    );
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease-out;
+}
+
+.card-box:hover::before {
+    opacity: 1;
+}
+/* =========================
+   TILT 3D – CARDS
+========================= */
+
+
+/* Effet clic → écrasement + déplacement */
+.card-box:active {
+    transform: translateY(-2px) scale(0.95) rotateX(var(--rotateX,0deg)) rotateY(var(--rotateY,0deg));
+    
+}
 </style>
 </head>
 
@@ -393,55 +508,55 @@ Découvrez notre collection de costumes uniques et spectaculaires, conçus pour 
 
 <div class="cards">
 
-<div class="card card-box">
+<div class="card card-box reveal">
      <img src="images/costumes/le devoreur de monde.jpg">
      <h3>Le dévoreur de Monde</h3>
      <div class="details">
 	Colosse venu des confins de l'univers, ce personnage impose par son aura cosmique. Puissant mais toujours bienveillant avec le public, il ne laisse personne indifférent.</div></div>
 
-<div class="card card-box">
+<div class="card card-box reveal">
      <img src="images/costumes/robot geant.jpg">
      <h3>Robot Géant</h3>
      <div class="details">
 	Gardien métallique venu des étoiles, ce robot géant incarne force et protection. Imposant mais accessible, il impressionne toutes les générations grâce à son allure héroïque et son énergie inspirante.</div></div>
 
-<div class="card card-box">
+<div class="card card-box reveal">
      <img src="images/costumes/halloween jack.jpg">
      <h3>Halloween Jack</h3>
      <div class="details">
 	Avec son sourire citrouille et son air espiègle, Halloween Jack incarne l'esprit malicieux d'octobre. Un personnage parfait pour des animations festives et amusantes.</div></div>
 
-<div class="card card-box">
+<div class="card card-box reveal">
      <img src="images/costumes/santa jack.jpg">
      <h3>Santa Jack</h3>
      <div class="details">
 	Version hivernale de Jack, Santa Jack apporte la magie de Noël.. sur échasses! Son style unique mélange féerie, élégance et une pointe d'humour.</div></div>
 
-<div class="card card-box">
+<div class="card card-box reveal">
      <img src="images/costumes/renard a 9 queues.jpg">
      <h3>Renard à neuf queues</h3>
      <div class="details">
 	Créature mystique venue des légendes d'Orient, ce renard à neuf queues fascine par son élégance et sa puissance. Un personnage visuellement spectaculaire, apprécié des enfants comme des adultes.</div></div>
 
-<div class="card card-box">
+<div class="card card-box reveal">
      <img src="images/costumes/le prince des cauchemars.jpg">
      <h3>Prince des Cauchemars</h3>
      <div class="details">
 	Majestueuse figure des nuits agitées, le Prince des Cauchemars règne sur un royaume où l'imaginaire prend vie. Impressionnant mais jamais effrayant, il apporte une ambiance mystérieuse et captivante, parfaite pour les événements à thème fantastique ou Halloween.</div></div>
 
-<div class="card card-box">
+<div class="card card-box reveal">
      <img src="images/costumes/dieu de la mort.jpg">
      <h3>Dieu de la Mort</h3>
      <div class="details">
 	Figure majestueuse entre le monde des vivants et celui des esprits, ce personnage veille dans un silence solennel. Une présence forte, intrigante, mais toujours adaptée au tout public.</div></div>
 
-<div class="card card-box">
+<div class="card card-box reveal">
      <img src="images/costumes/le slenderman.jpg">
      <h3>Slenderman</h3>
      <div class="details">
 	« L'Homme Sans Visage >> Silhouette élancée venue des ombres, Slenderman impressionne</div></div>
 
-<div class="card card-box">
+<div class="card card-box reveal">
     <img src="images/costumes/pirate musicien.jpg">
     <h3>Pirate musicien</h3>
     <div class="details">
@@ -449,13 +564,13 @@ Découvrez notre collection de costumes uniques et spectaculaires, conçus pour 
     </div>
 </div>
 
-<div class="card card-box">
+<div class="card card-box reveal">
      <img src="images/costumes/bao.jpg">
      <h3>Bao – Lion chinois</h3>
      <div class="details">
 	Avec sa danse colorée et son énergie communicative, Bao apporte chance et joie là où il passe. Une animation vibrante, parfaite pour les événements festifs.</div></div>
 
-<div class="card card-box">
+<div class="card card-box reveal">
      <img src="images/costumes/ryujin.jpg">
      <h3>Ryujin – Dragon chinois</h3>
      <div class="details">
@@ -473,7 +588,7 @@ Découvrez notre collection de costumes uniques et spectaculaires, conçus pour 
 
     <div class="prestations">
 
-        <div class="prestation card-box">
+        <div class="prestation card-box reveal">
             <img src="images/prestations/salon.jpg">
             <h3>Salons & Conventions</h3>
             <div class="details">
@@ -482,7 +597,7 @@ Découvrez notre collection de costumes uniques et spectaculaires, conçus pour 
             </div>
         </div>
 
-        <div class="prestation card-box">
+        <div class="prestation card-box reveal">
             <img src="images/prestations/anniversaire.jpg" alt="Animation anniversaire">
             <h3>Anniversaires</h3>
             <div class="details">
@@ -491,7 +606,7 @@ Découvrez notre collection de costumes uniques et spectaculaires, conçus pour 
             </div>
         </div>
 
-        <div class="prestation card-box">
+        <div class="prestation card-box reveal">
             <img src="images/prestations/soiree.jpg" alt="Animation soirée événementielle">
             <h3>Soirées & Événementiel</h3>
             <div class="details">
@@ -507,12 +622,12 @@ Découvrez notre collection de costumes uniques et spectaculaires, conçus pour 
     <h2>Animations Micro & Régie Sonore</h2>
     <p>
         VGM Cosplay propose des animations micro complètes pour vos événements :
-        jeux interactifs, conférences avec invités, planning détaillé sur tout le week-end.
+        jeux interactifs, conférences avec invités, planning détaillé sur tout le week-end.<br><br>
         Nous disposons également d'une régie sonore professionnelle pour garantir une ambiance optimale.
     </p>
 
     <div class="animation-container">
-    <div class="animation card-box">
+    <div class="animation card-box reveal">
         <img src="images/animations/micro.jpg" alt="Animation Micro">
         <h3>Animation Micro</h3>
 
@@ -521,7 +636,7 @@ Découvrez notre collection de costumes uniques et spectaculaires, conçus pour 
         </div>
     </div>
 
-    <div class="animation card-box">
+    <div class="animation card-box reveal">
         <img src="images/animations/regie.jpg" alt="Régie Sonore">
         <h3>Régie Sonore</h3>
 
@@ -545,31 +660,31 @@ Participez à nos ateliers créatifs et immersifs, où imagination et savoir-fai
 	
 
     <div class="cards">
-        <div class="card card-box">
+        <div class="card card-box reveal">
             <img src="images/ateliers/atelier-papercraft.jpg" alt="Atelier Papercraft">
             <h3>Atelier Papercraft</h3>
             <div class="details">L'atelier de Paper Craft est une activité créative et ludique où les participants donnent vie à des objets en papier en les découpant, pliant et assemblant. Guidés par des modèles ou des instructions, les participants peuvent réaliser des créations variées, allant de simples animaux à des structures complexes comme des bâtiments ou des personnages. Cet atelier développe la précision, la patience et la coordination tout en stimulant l’imagination. Idéal pour les enfants, il offre un moment de détente et d’expression artistique, où chacun repart avec sa propre œuvre fabriquée à la main.</div>
         </div>
 
-        <div class="card card-box">
+        <div class="card card-box reveal">
             <img src="images/ateliers/atelier-ombres-chinoises.jpg" alt="Atelier Fabrication d'Ombres Chinoises">
             <h3>Atelier Fabrication d'Ombres Chinoises</h3>
             <div class="details">L'atelier de fabrication d'ombres chinoises invite les enfants à plonger dans l'univers magique du théâtre d'ombres. Répartis en groupes, ils choisissent un thème parmi plusieurs propositions, puis imaginent une histoire à raconter. Chaque groupe conçoit et fabrique les personnages et les décors nécessaires en découpant des silhouettes dans du papier ou du carton noir. Une fois les créations terminées, ils apprennent à manipuler leurs ombres derrière un écran éclairé, donnant vie à leurs récits grâce à la lumière et au mouvement. Cet atelier stimule la créativité, la collaboration et l'expression artistique tout en offrant un moment unique d'imaginaire partagé.</div>
         </div>
 
-        <div class="card card-box">
+        <div class="card card-box reveal">
             <img src="images/ateliers/atelier-oeufs-paques.jpg" alt="Atelier Peinture d'Oeufs de Pâques">
             <h3>Atelier Peinture d'Oeufs de Pâques</h3>
             <div class="details">L'atelier de peinture d'œufs de Pâques est une activité festive et colorée pour préparer la chasse aux œufs tant attendue du mois d'avril. Les participants, petits et grands, décorent des œufs en utilisant des pinceaux, des pochoirs et une palette de couleurs éclatantes. Ils peuvent ajouter des motifs joyeux, des paillettes ou même des autocollants pour personnaliser leurs créations. Cet atelier développe la créativité et offre un moment convivial autour de l’esprit de Pâques. Les œufs décorés seront ensuite utilisés pour embellir la chasse aux œufs, ajoutant une touche unique et personnelle à cette tradition printanière.</div>
         </div>
 
-        <div class="card card-box">
+        <div class="card card-box reveal">
             <img src="images/ateliers/atelier-cosplay.jpg" alt="Atelier Cosplay – Thème au choix">
             <h3>Atelier Cosplay – Thème au choix</h3>
             <div class="details">L'atelier cosplay revient en 2025 avec encore plus de créativité et de liberté ! Après le succès de l'édition 2024 sur le thème d'Halloween, cette nouvelle session offre aux participants la possibilité de choisir leur propre thème selon une liste préétablie. Que ce soit pour créer des masques effrayants, des accessoires fantastiques ou des éléments inspirés de leurs personnages préférés, chacun pourra laisser libre cours à son imagination. Accompagnés par des animateurs, les participants apprendront à découper, modeler et peindre pour donner vie à leurs idées. Cet atelier ludique et artistique promet des créations uniques et des souvenirs mémorables pour tous les amateurs de cosplay !</div>
         </div>
 
-        <div class="card card-box">
+        <div class="card card-box reveal">
             <img src="images/ateliers/atelier-stop-motion.jpg" alt="Atelier Stop Motion">
             <h3>Atelier Stop Motion</h3>
             <div class="details">
@@ -588,55 +703,55 @@ L'atelier stop motion est une plongée dans l'univers du cinéma d'animation, o�
 
     <div class="logos-container">
 
-        <div class="logo-card card-box">
+        <div class="logo-card card-box reveal">
 		<a href="https://www.facebook.com/p/Wingeek-61552380356856/" target="_blank">
             <img src="images/salons/salon1.png" alt="Salon 1">
 		</a>
         </div>
 
-        <div class="logo-card card-box">
+        <div class="logo-card card-box reveal">
 		<a href="https://www.instagram.com/lyscomix/" target="_blank">
             <img src="images/salons/salon2.png" alt="Salon 2">
 		</a>
         </div>
 
-        <div class="logo-card card-box">
+        <div class="logo-card card-box reveal">
 		<a href="https://www.facebook.com/profile.php?id=61572938362625" target="_blank">
             <img src="images/salons/salon3.png" alt="Salon 3">
 		</a>
         </div>
 
-        <div class="logo-card card-box">
+        <div class="logo-card card-box reveal">
 		<a href="https://www.summergeekfestival.be/" target="_blank">
             <img src="images/salons/salon4.png" alt="Salon 4">
 		</a>
         </div>
 
-        <div class="logo-card card-box">
+        <div class="logo-card card-box reveal">
 		<a href="https://wintergeekfestival.be/" target="_blank">
             <img src="images/salons/salon5.png" alt="Salon 5">
 		</a>
         </div>
 
-        <div class="logo-card card-box">
+        <div class="logo-card card-box reveal">
 		<a href="https://www.geek-days.com/lille/" target="_blank">
             <img src="images/salons/salon6.png" alt="Salon 6">
 		</a>
         </div>
 
-        <div class="logo-card card-box">
+        <div class="logo-card card-box reveal">
 		<a href="https://www.facebook.com/events/1372325017139715/" target="_blank">
             <img src="images/salons/salon7.png" alt="Salon 7">
 		</a>
         </div>
 
-        <div class="logo-card card-box">
+        <div class="logo-card card-box reveal">
 		<a href="https://www.facebook.com/profile.php?id=61558656386289" target="_blank">
             <img src="images/salons/salon8.png" alt="Salon 8">	
 		</a>
         </div>
 
-        <div class="logo-card card-box">
+        <div class="logo-card card-box reveal">
 		<a href="https://henin-beaumont.cineville.fr/programmes/henin-beaumont" target="_blank">
             <img src="images/salons/salon9.png" alt="Salon 9">
 		</a>
@@ -659,7 +774,7 @@ L'atelier stop motion est une plongée dans l'univers du cinéma d'animation, o�
 
     <div class="collaboration-container">
 
-        <div class="collaboration-card card-box">
+        <div class="collaboration-card card-box reveal">
     <img src="images/collaboration/infinix-1.jpg" alt="Danse en mode ninja">
     <h3>Danse en mode ninja</h3>
 
@@ -669,7 +784,7 @@ L'atelier stop motion est une plongée dans l'univers du cinéma d'animation, o�
     </div>
 </div>
 
-<div class="collaboration-card card-box">
+<div class="collaboration-card card-box reveal">
     <img src="images/collaboration/infinix-2.jpg" alt="Danse thématique">
     <h3>Danse thématique</h3>
 
@@ -679,7 +794,7 @@ L'atelier stop motion est une plongée dans l'univers du cinéma d'animation, o�
     </div>
 </div>
 
-<div class="collaboration-card card-box">
+<div class="collaboration-card card-box reveal">
     <img src="images/collaboration/infinix-3.jpg" alt="Danse traditionnelle">
     <h3>Danse traditionnelle</h3>
 
@@ -736,6 +851,11 @@ L'atelier stop motion est une plongée dans l'univers du cinéma d'animation, o�
     </div>
 </section>
 
+<div class="contact-float-group">
+    <a href="mailto:vgm_cosplay@outlook.fr" class="contact-float">📧 Mail</a>
+    <a href="https://www.facebook.com/ginobinohc" target="_blank" class="contact-float">📘 Facebook</a>
+    <a href="tel:+33621595698" class="contact-float">📞 Téléphone</a>
+</div>
 
 
 <footer>
@@ -759,6 +879,103 @@ document.querySelectorAll(
         }
     });
 });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const reveals = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+    reveals.forEach(el => observer.observe(el));
+});
+</script>
+<script>
+document.querySelectorAll(".card-box").forEach(card => {
+
+    const maxTilt = 12; // degrés
+    let isPressed = false;
+
+    const updateTransform = (x = null, y = null) => {
+        const rect = card.getBoundingClientRect();
+
+        // si pas fourni par mousemove, utiliser le centre
+        if (x === null) x = rect.width / 2;
+        if (y === null) y = rect.height / 2;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * maxTilt;
+        const rotateY = ((x - centerX) / centerX) * maxTilt;
+
+        // Lumière
+        card.style.setProperty("--x", `${x}px`);
+        card.style.setProperty("--y", `${y}px`);
+
+        const translateY = isPressed ? -2 : -6;
+        const scale = isPressed ? 0.95 : 1;
+
+        card.style.transform = `
+            translateY(${translateY}px)
+            scale(${scale})
+            rotateX(${-rotateX}deg)
+            rotateY(${rotateY}deg)
+        `;
+    };
+
+    card.addEventListener("mousemove", e => {
+        updateTransform(e.clientX - card.getBoundingClientRect().left,
+                        e.clientY - card.getBoundingClientRect().top);
+    });
+
+    card.addEventListener("mousedown", e => {
+        isPressed = true;
+        updateTransform(e.clientX - card.getBoundingClientRect().left,
+                        e.clientY - card.getBoundingClientRect().top);
+    });
+
+    card.addEventListener("mouseup", e => {
+        isPressed = false;
+        updateTransform(e.clientX - card.getBoundingClientRect().left,
+                        e.clientY - card.getBoundingClientRect().top);
+    });
+
+    card.addEventListener("mouseleave", () => {
+        isPressed = false;
+        card.style.transform = "translateY(0) rotateX(0) rotateY(0) scale(1)";
+        card.style.removeProperty("--x");
+        card.style.removeProperty("--y");
+    });
+
+});
+</script>
+
+
+<script>
+  // Créer l'objet audio
+  const hoverSound = new Audio('hover-sound.mp3');
+  hoverSound.volume = 0.3; // volume modéré pour pas que ce soit agressif
+
+  // Sélectionner toutes les card-box
+  const cards = document.querySelectorAll('.card-box');
+
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      hoverSound.currentTime = 0; // pour rejouer le son si hover rapide
+      hoverSound.play();
+    });
+  });
 </script>
 
 
