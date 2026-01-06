@@ -116,6 +116,7 @@ nav a {
     font-size: 0.9em;
 }
 
+
 /* Hover sur chaque bouton */
 .contact-float:hover {
     transform: translateY(-3px) scale(1.05);
@@ -200,6 +201,7 @@ nav a {
 }
 
 .contact-icons a img {
+    cursor: pointer;
     width: 60px;
     transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -216,6 +218,7 @@ nav a {
 }
 
 .contact-infos {
+    cursor: pointer;
     margin-top: 30px;
     font-size: 1.05em;
 }
@@ -341,6 +344,7 @@ footer {
 
 /* Images à l'intérieur */
 .card-box img {
+    cursor: pointer;
     width: 100%;
     display: block;
     border-radius: 12px;
@@ -476,6 +480,41 @@ footer {
     transform: translateY(-2px) scale(0.95) rotateX(var(--rotateX,0deg)) rotateY(var(--rotateY,0deg));
     
 }
+/* =========================
+   COMPTEUR VISITEURS FLOTTANT
+========================= */
+#visitor-counter {
+    position: fixed;
+    left: 20px;
+    bottom: 120px; /* ajuste si besoin par rapport à tes boutons */
+    background: #111;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 30px;
+    font-size: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.85;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    z-index: 999;
+    pointer-events: none; /* pure info, pas cliquable */
+}
+
+#visitor-counter span {
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+#visitor-counter:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 20px 40px rgba(20, 10, 147, 0.6),
+        0 0 20px rgba(255, 50, 158, 0.6);
+    opacity: 1;
+}
+
 </style>
 </head>
 
@@ -977,6 +1016,18 @@ document.querySelectorAll(".card-box").forEach(card => {
     });
   });
 </script>
+<script>
+fetch('https://api.countapi.xyz/hit/vgmcosplay/visiteurs')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('visitor-number').textContent = data.value;
+  })
+  .catch(() => {
+    document.getElementById('visitor-number').textContent = '?';
+  });
+</script>
+
+<div id="visitor-counter">👁️ Visiteurs <span id="visitor-number">—</span></div>
 
 
 </body>
