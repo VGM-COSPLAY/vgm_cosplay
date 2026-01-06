@@ -1004,16 +1004,6 @@ document.querySelectorAll(".card-box").forEach(card => {
     });
   });
 </script>
-<script>
-fetch('https://api.countapi.xyz/hit/vgmcosplay/visiteurs')
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById('visitor-number').textContent = data.value;
-  })
-  .catch(() => {
-    document.getElementById('visitor-number').textContent = '?';
-  });
-</script>
 <div id="visitor-counter">
 Visiteurs <span
 id="visitor-number">0</span>
