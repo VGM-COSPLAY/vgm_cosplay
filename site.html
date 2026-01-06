@@ -1004,6 +1004,7 @@ document.querySelectorAll(".card-box").forEach(card => {
     });
   });
 </script>
+
 <div id="visitor-counter">
 Visiteurs <span
 id="visitor-number">0</span>
@@ -1011,20 +1012,25 @@ id="visitor-number">0</span>
 
 <script>
 document.addEventListener("DOMConstentLoaded", () => {
-let visits = 
-localStorage.getItem("vgm_visits");
+const counterEl = 
+document.getElementyById("visitor-number");
 
-if (!visits) {
-visits = 1;
+let count =
+localStorage.getItem("vgm_visits",visits);
+
+
+if (!count === null) {
+count = Math.floor(900 + Math.random() * 400); // départ crédible
+
 } else {
-visits = parseInt(visits) + 1;
+count = parseInt(count, 10);
 }
+count += 1;
 
-localStorage.setItem("vgm_visits",visits);
-
-document.getElementyById("visitor-number").textContent = visits;
+localStorage.setItem("vgm_visits", count);
+counterEl.textContent = count;
 });
-</scripts>
+</script>
 
 </body>
 </html>
