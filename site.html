@@ -480,41 +480,29 @@ footer {
     transform: translateY(-2px) scale(0.95) rotateX(var(--rotateX,0deg)) rotateY(var(--rotateY,0deg));
     
 }
-/* =========================
-   COMPTEUR VISITEURS FLOTTANT
-========================= */
 #visitor-counter {
-    position: fixed;
-    left: 20px;
-    bottom: 120px; /* ajuste si besoin par rapport à tes boutons */
-    background: #111;
-    color: #fff;
-    padding: 10px 16px;
-    border-radius: 30px;
-    font-size: 14px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    opacity: 0.85;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
-    z-index: 999;
-    pointer-events: none; /* pure info, pas cliquable */
-}
-
-#visitor-counter span {
-    color: #ffcc00;
-    font-weight: bold;
+position: fixed;
+left: 20px;
+bottom: 20px;
+background: rgba(17, 17, 17, 0.85);
+color: #fff;
+padding: 10px 16px;
+border-radius: 20px;
+font-size: 14px;
+font-weight: bold;
+box-shadow: 0 10px 25px;
+rgba(0,0,0,0.5);
+backdrop-filter: blur (6px);
+z-index: 999;
+transition: transform 0.3s ease,
+box-shadow 0.3s ease;
 }
 
 #visitor-counter:hover {
-    transform: translateY(-4px);
-    box-shadow:
-        0 20px 40px rgba(20, 10, 147, 0.6),
-        0 0 20px rgba(255, 50, 158, 0.6);
-    opacity: 1;
+transform: translateY(-4px);
+box-shadow: 0 15px 30px rgba(20, 10, 147, 0.6),
+0 0 20px rgba(255, 50, 158, 0.6);
 }
-
 </style>
 </head>
 
@@ -1026,9 +1014,27 @@ fetch('https://api.countapi.xyz/hit/vgmcosplay/visiteurs')
     document.getElementById('visitor-number').textContent = '?';
   });
 </script>
+<div id="visitor-counter">
+Visiteurs <span
+id="visitor-number">0</span>
+</div>
 
-<div id="visitor-counter">👁️ Visiteurs <span id="visitor-number">—</span></div>
+<script>
+document.addEventListener("DOMConstentLoaded", () => {
+let visits = 
+localStorage.getItem("vgm_visits");
 
+if (!visits) {
+visits = 1;
+} else {
+visits = parseInt(visits) + 1;
+}
+
+localStorage.setItem("vgm_visits",visits);
+
+document.getElementyById("visitor-number").textContent = visits;
+});
+</scripts>
 
 </body>
 </html>
