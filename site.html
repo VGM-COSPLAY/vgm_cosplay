@@ -1011,15 +1011,15 @@ id="visitor-number">0</span>
 </div>
 
 <script>
-document.addEventListener("DOMConstentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
 const counterEl = 
-document.getElementyById("visitor-number");
+document.getElementById("visitor-number");
 
 let count =
 localStorage.getItem("vgm_visits");
 
 
-if (!count === null) {
+if (count === null) {
 count = Math.floor(900 + Math.random() * 400); // départ crédible
 
 } else {
