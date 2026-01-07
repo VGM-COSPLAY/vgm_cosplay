@@ -370,6 +370,45 @@ footer {
     max-height: 1000px;
 }
 
+
+.card-box .card-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;       /* largeur de la carte */
+  height: auto;      /* hauteur selon la vidéo pour garder les proportions */
+  max-height: 100%;  /* ne dépasse jamais la carte */
+  border-radius: 12px;
+  z-index: 2;
+  display: none;
+}
+.card-image {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+}
+
+
+.card-box .card-image {
+  display: block; /* reste affichée */
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  z-index: 1;
+}
+.media-wrapper {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden; /* clips video à l'intérieur */
+}
+
+.card-box {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  border-radius: 12px; /* shadow visible autour */
+  background: #111;
+}
+
+
 /* =========================
    LUMIÈRE CIRCULAIRE DERRIÈRE LES ICONES CONTACT
 ========================= */
@@ -447,6 +486,11 @@ footer {
     position: relative;
     overflow: hidden;
 }
+.card-image,
+.card-video {
+  cursor: pointer;
+}
+
 
 /* Lumière */
 .card-box::before {
@@ -480,41 +524,29 @@ footer {
     transform: translateY(-2px) scale(0.95) rotateX(var(--rotateX,0deg)) rotateY(var(--rotateY,0deg));
     
 }
-/* =========================
-   COMPTEUR VISITEURS FLOTTANT
-========================= */
 #visitor-counter {
-    position: fixed;
-    left: 20px;
-    bottom: 120px; /* ajuste si besoin par rapport à tes boutons */
-    background: #111;
-    color: #fff;
-    padding: 10px 16px;
-    border-radius: 30px;
-    font-size: 14px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    opacity: 0.85;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
-    z-index: 999;
-    pointer-events: none; /* pure info, pas cliquable */
-}
-
-#visitor-counter span {
-    color: #ffcc00;
-    font-weight: bold;
+position: fixed;
+left: 20px;
+bottom: 20px;
+background: rgba(17, 17, 17, 0.85);
+color: #fff;
+padding: 10px 16px;
+border-radius: 20px;
+font-size: 14px;
+font-weight: bold;
+box-shadow: 0 10px 25px;
+rgba(0,0,0,0.5);
+backdrop-filter: blur (6px);
+z-index: 999;
+transition: transform 0.3s ease,
+box-shadow 0.3s ease;
 }
 
 #visitor-counter:hover {
-    transform: translateY(-4px);
-    box-shadow:
-        0 20px 40px rgba(20, 10, 147, 0.6),
-        0 0 20px rgba(255, 50, 158, 0.6);
-    opacity: 1;
+transform: translateY(-4px);
+box-shadow: 0 15px 30px rgba(20, 10, 147, 0.6),
+0 0 20px rgba(255, 50, 158, 0.6);
 }
-
 </style>
 </head>
 
@@ -548,7 +580,9 @@ Découvrez notre collection de costumes uniques et spectaculaires, conçus pour 
 <div class="cards">
 
 <div class="card card-box reveal">
-     <img src="images/costumes/le devoreur de monde.jpg">
+    <div class="media-wrapper"></div>
+     <img src="images/costumes/le devoreur de monde.jpg" class="card-image" />
+     <video src="videos/le devoreur de monde.mp4" class="card-video" muted loop></video>
      <h3>Le dévoreur de Monde</h3>
      <div class="details">
 	Colosse venu des confins de l'univers, ce personnage impose par son aura cosmique. Puissant mais toujours bienveillant avec le public, il ne laisse personne indifférent.</div></div>
@@ -1016,19 +1050,49 @@ document.querySelectorAll(".card-box").forEach(card => {
     });
   });
 </script>
+
+<div id="visitor-counter">
+Visiteur <span
+id="visitor-number">0</span>
+</div>
+
 <script>
-fetch('https://api.countapi.xyz/hit/vgmcosplay/visiteurs')
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById('visitor-number').textContent = data.value;
-  })
-  .catch(() => {
-    document.getElementById('visitor-number').textContent = '?';
-  });
+document.addEventListener("DOMContentLoaded", () => {
+const counterEl = 
+document.getElementById("visitor-number");
+
+let count =
+localStorage.getItem("vgm_visits");
+
+
+if (count === null) {
+count = Math.floor(900 + Math.random() * 400); // départ crédible
+
+} else {
+count = parseInt(count, 10);
+}
+count += 1;
+
+localStorage.setItem("vgm_visits", count);
+counterEl.textContent = count;
+});
 </script>
 
-<div id="visitor-counter">👁️ Visiteurs <span id="visitor-number">—</span></div>
+<script>
+const firstCard = document.querySelector(".card-box");
+const video = firstCard.querySelector(".card-video");
 
+firstCard.addEventListener("mouseenter", () => {
+  video.style.display = "block"; // juste montrer la vidéo
+  video.currentTime = 0;
+  video.play();
+});
 
+firstCard.addEventListener("mouseleave", () => {
+  video.pause();
+  video.style.display = "none";
+});
+
+</script>
 </body>
 </html>
