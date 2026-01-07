@@ -370,6 +370,45 @@ footer {
     max-height: 1000px;
 }
 
+
+.card-box .card-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;       /* largeur de la carte */
+  height: auto;      /* hauteur selon la vidéo pour garder les proportions */
+  max-height: 100%;  /* ne dépasse jamais la carte */
+  border-radius: 12px;
+  z-index: 2;
+  display: none;
+}
+.card-image {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+}
+
+
+.card-box .card-image {
+  display: block; /* reste affichée */
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  z-index: 1;
+}
+.media-wrapper {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden; /* clips video à l'intérieur */
+}
+
+.card-box {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  border-radius: 12px; /* shadow visible autour */
+  background: #111;
+}
+
+
 /* =========================
    LUMIÈRE CIRCULAIRE DERRIÈRE LES ICONES CONTACT
 ========================= */
@@ -447,6 +486,11 @@ footer {
     position: relative;
     overflow: hidden;
 }
+.card-image,
+.card-video {
+  cursor: pointer;
+}
+
 
 /* Lumière */
 .card-box::before {
@@ -536,7 +580,9 @@ Découvrez notre collection de costumes uniques et spectaculaires, conçus pour 
 <div class="cards">
 
 <div class="card card-box reveal">
-     <img src="images/costumes/le devoreur de monde.jpg">
+    <div class="media-wrapper"></div>
+     <img src="images/costumes/le devoreur de monde.jpg" class="card-image" />
+     <video src="videos/le devoreur de monde.mp4" class="card-video" muted loop></video>
      <h3>Le dévoreur de Monde</h3>
      <div class="details">
 	Colosse venu des confins de l'univers, ce personnage impose par son aura cosmique. Puissant mais toujours bienveillant avec le public, il ne laisse personne indifférent.</div></div>
@@ -1032,5 +1078,21 @@ counterEl.textContent = count;
 });
 </script>
 
+<script>
+const firstCard = document.querySelector(".card-box");
+const video = firstCard.querySelector(".card-video");
+
+firstCard.addEventListener("mouseenter", () => {
+  video.style.display = "block"; // juste montrer la vidéo
+  video.currentTime = 0;
+  video.play();
+});
+
+firstCard.addEventListener("mouseleave", () => {
+  video.pause();
+  video.style.display = "none";
+});
+
+</script>
 </body>
 </html>
