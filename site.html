@@ -257,6 +257,98 @@ footer {
     justify-content: center;
     align-items: center;
 }
+/* =========================
+   HERO VIDEO PROMOTIONNELLE
+========================= */
+.hero-video {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* plein écran */
+  overflow: hidden;
+  background: #000;
+}
+
+.hero-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-video::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.3),
+    rgba(0,0,0,0.7)
+  );
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-overlay h1 {
+  font-size: 3em;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+}
+
+.hero-overlay p {
+  font-size: 1.2em;
+  max-width: 600px;
+  margin-bottom: 30px;
+  color: #eee;
+}
+
+.hero-btn {
+  background: #ffcc00;
+  color: #000;
+  padding: 14px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hero-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255,204,0,0.6);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero-overlay h1 {
+    font-size: 2.2em;
+  }
+
+  .hero-overlay p {
+    font-size: 1em;
+  }
+}
+.hero-logo {
+  max-width: 320px;   /* taille max desktop */
+  width: 80%;
+  margin-bottom: 25px;
+  filter: drop-shadow(0 0 20px rgba(255,255,255,0.4));
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero-logo {
+    max-width: 220px;
+  }
+}
 
 /* =========================
    TRIANGLE SOUS LA DESCRIPTION
@@ -490,6 +582,9 @@ footer {
 .card-video {
   cursor: pointer;
 }
+.logo {
+    margin: 0 auto;
+}
 
 
 /* Lumière */
@@ -535,7 +630,7 @@ border-radius: 20px;
 font-size: 14px;
 font-weight: bold;
 box-shadow: 0 10px 25px;
-rgba(0,0,0,0.5);
+rgba (0,0,0,0.5);
 backdrop-filter: blur (6px);
 z-index: 999;
 transition: transform 0.3s ease,
@@ -567,6 +662,21 @@ box-shadow: 0 15px 30px rgba(20, 10, 147, 0.6),
 </nav>
 
 </header>
+<section class="hero-video">
+  <video
+    src="videos/video_promo_vgm.mp4"
+    autoplay
+    muted
+    loop
+    playsinline
+  ></video>
+
+  <div class="hero-overlay">
+    <img src="images/logo.png" alt="VGM Cosplay" class="hero-logo">
+    <p>Donner de la hauteur à vos évènement !</p>
+
+  </div>
+</section>
 
 <section class="section" id="costumes">
 <h2>Nos Costumes</h2>
@@ -581,61 +691,69 @@ Découvrez notre collection de costumes uniques et spectaculaires, conçus pour 
 
 <div class="card card-box reveal">
     <div class="media-wrapper"></div>
-     <img src="images/costumes/le devoreur de monde.jpg" class="card-image" />
-     <video src="videos/le devoreur de mondes.mp4" class="card-video" muted loop></video>
+     <img src="images/costumes/le_devoreur_de_monde.jpg" class="card-image" />
+     <video src="videos/le_devoreur_de_monde.mp4" class="card-video" muted loop autoplay></video>
      <h3>Le dévoreur de Monde</h3>
      <div class="details">
 	Colosse venu des confins de l'univers, ce personnage impose par son aura cosmique. Puissant mais toujours bienveillant avec le public, il ne laisse personne indifférent.</div></div>
 
 <div class="card card-box reveal">
-     <img src="images/costumes/robot geant.jpg">
+     <img src="images/costumes/robot_geant.jpg" class="card-image" />
+     <video src="videos/robot_geant.mp4" class="card-video" muted loop autoplay></video>
      <h3>Robot Géant</h3>
      <div class="details">
 	Gardien métallique venu des étoiles, ce robot géant incarne force et protection. Imposant mais accessible, il impressionne toutes les générations grâce à son allure héroïque et son énergie inspirante.</div></div>
 
 <div class="card card-box reveal">
-     <img src="images/costumes/halloween jack.jpg">
-     <h3>Halloween Jack</h3>
-     <div class="details">
-	Avec son sourire citrouille et son air espiègle, Halloween Jack incarne l'esprit malicieux d'octobre. Un personnage parfait pour des animations festives et amusantes.</div></div>
-
-<div class="card card-box reveal">
-     <img src="images/costumes/santa jack.jpg">
-     <h3>Santa Jack</h3>
-     <div class="details">
-	Version hivernale de Jack, Santa Jack apporte la magie de Noël.. sur échasses! Son style unique mélange féerie, élégance et une pointe d'humour.</div></div>
-
-<div class="card card-box reveal">
-     <img src="images/costumes/renard a 9 queues.jpg">
+     <img src="images/costumes/renard_a_9_queues.jpg">
      <h3>Renard à neuf queues</h3>
      <div class="details">
 	Créature mystique venue des légendes d'Orient, ce renard à neuf queues fascine par son élégance et sa puissance. Un personnage visuellement spectaculaire, apprécié des enfants comme des adultes.</div></div>
 
 <div class="card card-box reveal">
-     <img src="images/costumes/le prince des cauchemars.jpg">
-     <h3>Prince des Cauchemars</h3>
-     <div class="details">
-	Majestueuse figure des nuits agitées, le Prince des Cauchemars règne sur un royaume où l'imaginaire prend vie. Impressionnant mais jamais effrayant, il apporte une ambiance mystérieuse et captivante, parfaite pour les événements à thème fantastique ou Halloween.</div></div>
-
-<div class="card card-box reveal">
-     <img src="images/costumes/dieu de la mort.jpg">
-     <h3>Dieu de la Mort</h3>
-     <div class="details">
-	Figure majestueuse entre le monde des vivants et celui des esprits, ce personnage veille dans un silence solennel. Une présence forte, intrigante, mais toujours adaptée au tout public.</div></div>
-
-<div class="card card-box reveal">
-     <img src="images/costumes/le slenderman.jpg">
+     <img src="images/costumes/le_slenderman.jpg">
      <h3>Slenderman</h3>
      <div class="details">
 	« L'Homme Sans Visage >> Silhouette élancée venue des ombres, Slenderman impressionne</div></div>
 
 <div class="card card-box reveal">
-    <img src="images/costumes/pirate musicien.jpg">
+     <img src="images/costumes/halloween_jack.jpg">
+     <h3>Halloween Jack</h3>
+     <div class="details">
+	Avec son sourire citrouille et son air espiègle, Halloween Jack incarne l'esprit malicieux d'octobre. Un personnage parfait pour des animations festives et amusantes.</div></div>
+
+<div class="card card-box reveal">
+     <img src="images/costumes/santa_jack.jpg">
+     <h3>Santa Jack</h3>
+     <div class="details">
+	Version hivernale de Jack, Santa Jack apporte la magie de Noël.. sur échasses! Son style unique mélange féerie, élégance et une pointe d'humour.</div></div>
+
+<div class="card card-box reveal">
+     <img src="images/costumes/le_prince_des_cauchemars.jpg">
+     <h3>Prince des Cauchemars</h3>
+     <div class="details">
+	Majestueuse figure des nuits agitées, le Prince des Cauchemars règne sur un royaume où l'imaginaire prend vie. Impressionnant mais jamais effrayant, il apporte une ambiance mystérieuse et captivante, parfaite pour les événements à thème fantastique ou Halloween.</div></div>
+
+<div class="card card-box reveal">
+     <img src="images/costumes/dieu_de_la_mort.jpg">
+     <h3>Dieu de la Mort</h3>
+     <div class="details">
+	Figure majestueuse entre le monde des vivants et celui des esprits, ce personnage veille dans un silence solennel. Une présence forte, intrigante, mais toujours adaptée au tout public.</div></div>
+
+<div class="card card-box reveal">
+    <img src="images/costumes/pirate_musicien.jpg">
     <h3>Pirate musicien</h3>
     <div class="details">
         Personnage à l'allure élégante et pleine de charme, ce pirate squelettique traverse les mers au rythme de sa musique entraînante. Drôle, surprenant et toujours prêt à divertir, il apporte une touche d'humour et de fantaisie à chaque événement.
     </div>
 </div>
+
+<div class="card card-box reveal">
+     <img src="images/costumes/pirate_musicien_noel.jpg">
+     <h3>Pirate musicien - </h3>
+
+     <div class="details">
+	Personnage à l’allure élégante et festive, ce pirate squelettique traverse l’hiver au rythme de ses mélodies enchantées. Entre humour, surprises et esprit de Noël, il amuse petits et grands avec son charme unique et sa fantaisie décalée, apportant une touche magique et chaleureuse à chaque événement.</div></div>
 
 <div class="card card-box reveal">
      <img src="images/costumes/bao.jpg">
@@ -734,31 +852,31 @@ Participez à nos ateliers créatifs et immersifs, où imagination et savoir-fai
 
     <div class="cards">
         <div class="card card-box reveal">
-            <img src="images/ateliers/atelier-papercraft.jpg" alt="Atelier Papercraft">
+            <img src="images/ateliers/atelier_papercraft.jpg" alt="Atelier Papercraft">
             <h3>Atelier Papercraft</h3>
             <div class="details">L'atelier de Paper Craft est une activité créative et ludique où les participants donnent vie à des objets en papier en les découpant, pliant et assemblant. Guidés par des modèles ou des instructions, les participants peuvent réaliser des créations variées, allant de simples animaux à des structures complexes comme des bâtiments ou des personnages. Cet atelier développe la précision, la patience et la coordination tout en stimulant l’imagination. Idéal pour les enfants, il offre un moment de détente et d’expression artistique, où chacun repart avec sa propre œuvre fabriquée à la main.</div>
         </div>
 
         <div class="card card-box reveal">
-            <img src="images/ateliers/atelier-ombres-chinoises.jpg" alt="Atelier Fabrication d'Ombres Chinoises">
+            <img src="images/ateliers/atelier_ombres_chinoises.jpg" alt="Atelier Fabrication d'Ombres Chinoises">
             <h3>Atelier Fabrication d'Ombres Chinoises</h3>
             <div class="details">L'atelier de fabrication d'ombres chinoises invite les enfants à plonger dans l'univers magique du théâtre d'ombres. Répartis en groupes, ils choisissent un thème parmi plusieurs propositions, puis imaginent une histoire à raconter. Chaque groupe conçoit et fabrique les personnages et les décors nécessaires en découpant des silhouettes dans du papier ou du carton noir. Une fois les créations terminées, ils apprennent à manipuler leurs ombres derrière un écran éclairé, donnant vie à leurs récits grâce à la lumière et au mouvement. Cet atelier stimule la créativité, la collaboration et l'expression artistique tout en offrant un moment unique d'imaginaire partagé.</div>
         </div>
 
         <div class="card card-box reveal">
-            <img src="images/ateliers/atelier-oeufs-paques.jpg" alt="Atelier Peinture d'Oeufs de Pâques">
+            <img src="images/ateliers/atelier_oeufs_paques.jpg" alt="Atelier Peinture d'Oeufs de Pâques">
             <h3>Atelier Peinture d'Oeufs de Pâques</h3>
             <div class="details">L'atelier de peinture d'œufs de Pâques est une activité festive et colorée pour préparer la chasse aux œufs tant attendue du mois d'avril. Les participants, petits et grands, décorent des œufs en utilisant des pinceaux, des pochoirs et une palette de couleurs éclatantes. Ils peuvent ajouter des motifs joyeux, des paillettes ou même des autocollants pour personnaliser leurs créations. Cet atelier développe la créativité et offre un moment convivial autour de l’esprit de Pâques. Les œufs décorés seront ensuite utilisés pour embellir la chasse aux œufs, ajoutant une touche unique et personnelle à cette tradition printanière.</div>
         </div>
 
         <div class="card card-box reveal">
-            <img src="images/ateliers/atelier-cosplay.jpg" alt="Atelier Cosplay – Thème au choix">
+            <img src="images/ateliers/atelier_cosplay.jpg" alt="Atelier Cosplay – Thème au choix">
             <h3>Atelier Cosplay – Thème au choix</h3>
             <div class="details">L'atelier cosplay revient en 2025 avec encore plus de créativité et de liberté ! Après le succès de l'édition 2024 sur le thème d'Halloween, cette nouvelle session offre aux participants la possibilité de choisir leur propre thème selon une liste préétablie. Que ce soit pour créer des masques effrayants, des accessoires fantastiques ou des éléments inspirés de leurs personnages préférés, chacun pourra laisser libre cours à son imagination. Accompagnés par des animateurs, les participants apprendront à découper, modeler et peindre pour donner vie à leurs idées. Cet atelier ludique et artistique promet des créations uniques et des souvenirs mémorables pour tous les amateurs de cosplay !</div>
         </div>
 
         <div class="card card-box reveal">
-            <img src="images/ateliers/atelier-stop-motion.jpg" alt="Atelier Stop Motion">
+            <img src="images/ateliers/atelier_stop_motion.jpg" alt="Atelier Stop Motion">
             <h3>Atelier Stop Motion</h3>
             <div class="details">
 L'atelier stop motion est une plongée dans l'univers du cinéma d'animation, où les participants créent leur propre mini-film en deux jours. Après avoir choisi un thème, ils fabriquent des personnages et des décors simples à partir de papier, de figurines ou de matériaux préconçus. Guidés à chaque étape, ils découvrent les bases de l'animation image par image à l'aide d'une application ou d'une caméra. Chaque mouvement prend vie à l'écran, transformant leur imagination en une histoire animée unique. Cet atelier ludique et créatif garantit des souvenirs inoubliables et des œuvres à partager avec fierté !</div>
@@ -1079,21 +1197,25 @@ counterEl.textContent = count;
 </script>
 
 <script>
-const firstCard = document.querySelector(".card-box");
-const video = firstCard.querySelector(".card-video");
+document.querySelectorAll(".card-box").forEach(card => {
 
-firstCard.addEventListener("mouseenter", () => {
-  video.style.display = "block"; // juste montrer la vidéo
-  video.currentTime = 0;
-  video.play();
+  const video = card.querySelector(".card-video");
+  if (!video) return; // ignore les cartes sans vidéo
+
+  card.addEventListener("mouseenter", () => {
+    video.style.display = "block";
+    video.currentTime = 0;
+    video.play();
+  });
+
+  card.addEventListener("mouseleave", () => {
+    video.pause();
+    video.style.display = "none";
+  });
+
 });
-
-firstCard.addEventListener("mouseleave", () => {
-  video.pause();
-  video.style.display = "none";
-});
-
 </script>
+
 </body>
 >>>>>>> 0dc50aa8144cb6b6c18d31402ec2cca52fa0cd05
 </html>
