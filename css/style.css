@@ -94,13 +94,22 @@ header {
     top: 0;
     z-index: 100;
 }
+/* =========================
+   SALONS / LOGOS
+========================= */
 .logos-container {
-    display: flex;           /* met tous les logos sur la même ligne */
-    flex-wrap: wrap;         /* passe à la ligne si ça dépasse */
-    justify-content: center; /* centre horizontalement tous les logos */
-    gap: 30px;               /* espace entre les logos */
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 30px;
     margin-top: 40px;
-    align-items: center;     /* aligne verticalement si logos de tailles différentes */
+    align-items: center;
+}
+.logos-container .card-box {
+    width: 100%;       /* prend toute la largeur du "grid cell" */
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo {
@@ -193,7 +202,6 @@ nav a {
         font-size: 24px; /* ou 22px si tu veux que ça rentre */
     }
 }
-
 
 /* =========================
    BACK BUTTON
