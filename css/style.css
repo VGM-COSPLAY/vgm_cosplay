@@ -4,7 +4,9 @@
 .burger {
     font-size: 30px;
     cursor: pointer;
+    display: none;  /* 🔹 cacher sur desktop */
 }
+
 
 nav {
     display: none;
@@ -21,6 +23,26 @@ nav a {
     border-bottom: 1px solid #333;
     color: #fff;
     text-decoration: none;
+}
+/* Menu desktop (visible sur desktop) */
+nav {
+    display: flex;           /* 🔹 flex horizontal */
+    flex-direction: row;     /* 🔹 les liens côte à côte */
+    position: static;        /* 🔹 pas en absolute */
+    background: none;        /* 🔹 pas de fond noir */
+    width: auto;             /* 🔹 prend juste la place nécessaire */
+}
+
+nav a {
+    padding: 0 20px;         /* 🔹 espacement horizontal des liens */
+    border-bottom: none;     /* 🔹 pas de bordure */
+    color: #fff;
+}
+/* Hover desktop menu */
+nav a:hover {
+    color: #ffcc00;               /* change la couleur au survol */
+    transform: scale(1.1);        /* grossit légèrement */
+    transition: color 0.3s, transform 0.3s;
 }
 
 @media (max-width: 900px) {
@@ -43,14 +65,13 @@ nav a {
     nav.open {
         display: flex;
     }
-}
-
 
     nav a {
         padding: 12px 0;
         font-size: 1.2rem;
     }
 }
+
 
 
 * {
@@ -118,68 +139,31 @@ header {
     margin: 0 auto;
 }
 
-.burger {
-    font-size: 30px;
-    cursor: pointer;
-}
-
-nav {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: #111;
-    width: 220px;
-}
-
-nav a {
-    padding: 15px;
-    border-bottom: 1px solid #333;
-    color: #fff;
-}
-
 /* =========================
    HERO VIDEO
 ========================= */
 .hero-video {
     position: relative;
-    width: 100%;
-    height: 100vh;
+    max-width: 1200px;   /* largeur max sur desktop */
+    margin: 0 auto;      /* centrage horizontal */
+    height: 80vh;        /* moins haut que 100vh */
     overflow: hidden;
     background: #000;
+    border-radius: 20px; /* optionnel mais très classe */
 }
 
 .hero-video video {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-}
-
-.hero-video::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.6),
-        rgba(0,0,0,0.3),
-        rgba(0,0,0,0.7)
-    );
+    object-fit: contain; /* 🔥 IMPORTANT : plus de coupe */
+    background: #000;
 }
 
 
 .section {
     padding: 70px 20px;
     text-align: center; /* centre les titres et paragraphes */
-}
-.section h2 {
-  background: #111;
-  padding: 20px 0;
-  margin: 0 0 40px 0;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+     scroll-margin-top: 10px; /* correspond à la hauteur du menu burger */
 }
 .section h2 {
   background: linear-gradient(
@@ -188,7 +172,15 @@ nav a {
     #1a1a1a,
     #0e0e0e
   );
+  padding: 20px 0;
+  margin: 0 0 40px 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
+
+
+
 
 
 /* Mobile */
@@ -196,10 +188,18 @@ nav a {
     .hero-overlay h1 { font-size: 2.2em; }
     .hero-overlay p { font-size: 1em; }
     .hero-logo { max-width: 220px; }
-}
-@media (max-width: 768px) {
-    .logo {
-        font-size: 24px; /* ou 22px si tu veux que ça rentre */
+
+    .logo { font-size: 24px; } /* ou 22px si tu veux que ça rentre */
+
+    .hero-video {
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9; /* garde le bon ratio */
+        border-radius: 0; /* plein bord sur mobile */
+    }
+
+    .hero-video video {
+        object-fit: contain; /* plus aucune coupe */
     }
 }
 
