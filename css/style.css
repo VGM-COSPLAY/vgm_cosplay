@@ -543,7 +543,7 @@ footer {
         scroll-snap-type: x mandatory;      /* snap comme pour les cartes */
     }
 
-    .logos-container .logo-card {
+    .logos-container .card-box {
         flex: 0 0 auto;                     /* taille fixe et pas d'étirement */
         width: 140px;                        /* largeur des logos */
         scroll-snap-align: start;           /* snap au début */
