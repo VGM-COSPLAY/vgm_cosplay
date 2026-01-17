@@ -527,4 +527,32 @@ footer {
     }
 
 }
+/* SCROLL HORIZONTAL MOBILE POUR LES SALONS */
+@media (max-width: 768px) {
+    .logos-container {
+        display: flex !important;           /* force flex horizontal */
+        flex-direction: row !important;     /* ligne horizontale */
+        flex-wrap: nowrap !important;       /* pas de retour à la ligne */
+        overflow-x: auto;                   /* scroll horizontal */
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        gap: 20px;                          /* espacement entre les logos */
+        padding-bottom: 10px;
 
+        justify-content: flex-start;        /* alignement gauche */
+        scroll-snap-type: x mandatory;      /* snap comme pour les cartes */
+    }
+
+    .logos-container .logo-card {
+        flex: 0 0 auto;                     /* taille fixe et pas d'étirement */
+        width: 140px;                        /* largeur des logos */
+        scroll-snap-align: start;           /* snap au début */
+    }
+}
+.logos-container::-webkit-scrollbar {
+    height: 8px;
+}
+.logos-container::-webkit-scrollbar-thumb {
+    background: #ffcc00;
+    border-radius: 4px;
+}
