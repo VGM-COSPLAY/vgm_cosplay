@@ -551,7 +551,7 @@ footer {
     .animation-container::-webkit-scrollbar,
     .collaboration-container::-webkit-scrollbar,
     .logos-container::-webkit-scrollbar {
-        height: 8px;
+        height: 10px;
     }
 
     .cards::-webkit-scrollbar-thumb,
