@@ -4,17 +4,6 @@
     display: none;  /* 🔹 cacher sur desktop */
 }
 
-
-nav {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: #111;
-    width: 220px;
-}
-
 nav a {
     padding: 15px;
     border-bottom: 1px solid #333;
@@ -527,44 +516,36 @@ footer {
     }
 
 }
-/* SCROLL HORIZONTAL MOBILE POUR LES SALONS */
 @media (max-width: 768px) {
-    .logos-container {
-        display: flex !important;           /* force flex horizontal */
-        flex-direction: row !important;     /* ligne horizontale */
-        flex-wrap: nowrap !important;       /* pas de retour à la ligne */
-        overflow-x: auto;                   /* scroll horizontal */
-        overflow-y: hidden;
-        -webkit-overflow-scrolling: touch;
-        gap: 20px;                          /* espacement entre les logos */
-        padding-bottom: 10px;
 
-        justify-content: flex-start;        /* alignement gauche */
-        scroll-snap-type: x mandatory;      /* snap comme pour les cartes */
-    }
-
-    .logos-container .card-box {
-        flex: 0 0 auto;                     /* taille fixe et pas d'étirement */
-        width: 140px;                        /* largeur des logos */
-        scroll-snap-align: start;           /* snap au début */
-    }
-}
-
-/* =========================
-   SCROLLBAR MOBILE UNIFORME
-========================= */
-@media (max-width: 768px) {
     .cards,
     .prestations,
     .animation-container,
     .collaboration-container,
     .logos-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
         overflow-x: auto;
         overflow-y: hidden;
+        gap: 15px;
+        padding-bottom: 10px;
+        justify-content: flex-start;
+        scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
     }
 
-    /* Chrome, Edge, Safari */
+    .card-box {
+        flex: 0 0 auto;
+        width: 260px;
+        scroll-snap-align: start;
+    }
+
+    .logos-container .card-box {
+        width: 140px;
+    }
+
+    /* SCROLLBAR UNIFORME */
     .cards::-webkit-scrollbar,
     .prestations::-webkit-scrollbar,
     .animation-container::-webkit-scrollbar,
@@ -582,15 +563,6 @@ footer {
         border-radius: 4px;
     }
 
-    .cards::-webkit-scrollbar-track,
-    .prestations::-webkit-scrollbar-track,
-    .animation-container::-webkit-scrollbar-track,
-    .collaboration-container::-webkit-scrollbar-track,
-    .logos-container::-webkit-scrollbar-track {
-        background: rgba(255,255,255,0.05);
-    }
-
-    /* Firefox */
     .cards,
     .prestations,
     .animation-container,
@@ -600,3 +572,4 @@ footer {
         scrollbar-color: #ffcc00 rgba(255,255,255,0.05);
     }
 }
+
