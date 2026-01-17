@@ -1,11 +1,23 @@
-/* =========================
-   MENU HAMBURGER
-========================= */
 
-function toggleMenu() {
-    const menu = document.getElementById("menu");
-    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-}
+// =========================
+// MENU BURGER MOBILE
+// =========================
+const burger = document.querySelector('.burger'); // le bouton burger
+const nav = document.querySelector('nav');         // ton menu nav
+
+// Ouvre / ferme le menu au clic sur le burger
+burger.addEventListener('click', () => {
+    nav.classList.toggle('open'); // ajoute ou enlève la classe 'open'
+});
+
+// Ferme automatiquement le menu au clic sur un lien
+nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        nav.classList.remove('open'); // retire la classe 'open'
+    });
+});
+
+
 
 /* =========================
    DÉTAILS CLIQUABLES SUR LES CARTES
