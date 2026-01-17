@@ -199,39 +199,7 @@ header {
         object-fit: contain; /* plus aucune coupe */
     }
 }
-/* =========================
-   SCROLL HORIZONTAL MOBILE
-========================= */
-@media (max-width: 768px) {
 
-    .cards,
-    .prestations,
-    .animation-container,
-    .collaboration-container {
-        flex-wrap: nowrap;              /* une seule ligne */
-        overflow-x: auto;               /* scroll horizontal */
-        overflow-y: hidden;             /* pas de scroll vertical interne */
-        -webkit-overflow-scrolling: touch;
-        gap: 15px;
-        padding-bottom: 10px;
-    }
-
-    .card-box {
-        flex: 0 0 auto;                 /* empêche la réduction */
-        width: 260px;                   /* largeur stable */
-    }
-
-}
-    .cards,
-    .prestations,
-    .animation-container,
-    .collaboration-container {
-        scroll-snap-type: x mandatory;
-    }
-
-    .card-box {
-        scroll-snap-align: start;
-    }
 
 /* =========================
    BACK BUTTON
@@ -529,4 +497,32 @@ footer {
     transform: translateY(-4px);
     box-shadow: 0 15px 30px rgba(20,10,147,0.6),
                 0 0 20px rgba(255,50,158,0.6);
+}
+/* =========================
+   SCROLL HORIZONTAL MOBILE
+========================= */
+@media (max-width: 768px) {
+
+    .cards,
+    .prestations,
+    .animation-container,
+    .collaboration-container {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        gap: 15px;
+        padding-bottom: 10px;
+
+        justify-content: flex-start; /* ← LA LIGNE IMPORTANTE */
+        scroll-snap-type: x mandatory;
+    }
+
+    .card-box {
+        flex: 0 0 auto;
+        width: 260px;
+        scroll-snap-align: start;
+    }
+
 }
