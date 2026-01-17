@@ -507,23 +507,24 @@ footer {
     .prestations,
     .animation-container,
     .collaboration-container {
-        display: flex;
-        flex-direction: row;      /* 🔥 LIGNE MANQUANTE */
-        flex-wrap: nowrap;
-        overflow-x: auto;
+        display: flex !important;           /* force flex */
+        flex-direction: row !important;     /* ligne horizontale */
+        flex-wrap: nowrap !important;       /* pas de retour à la ligne */
+        overflow-x: auto;                   /* scroll horizontal */
         overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
-
-        justify-content: flex-start;
         gap: 15px;
         padding-bottom: 10px;
 
+        justify-content: flex-start;        /* alignement gauche */
         scroll-snap-type: x mandatory;
     }
 
     .card-box {
-        flex: 0 0 auto;
+        flex: 0 0 auto;                     /* taille fixe et pas d'étirement */
         width: 260px;
         scroll-snap-align: start;
     }
+
 }
+
