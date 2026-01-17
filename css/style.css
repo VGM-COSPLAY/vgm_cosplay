@@ -508,14 +508,16 @@ footer {
     .animation-container,
     .collaboration-container {
         display: flex;
+        flex-direction: row;      /* 🔥 LIGNE MANQUANTE */
         flex-wrap: nowrap;
         overflow-x: auto;
         overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
+
+        justify-content: flex-start;
         gap: 15px;
         padding-bottom: 10px;
 
-        justify-content: flex-start; /* ← LA LIGNE IMPORTANTE */
         scroll-snap-type: x mandatory;
     }
 
@@ -524,5 +526,4 @@ footer {
         width: 260px;
         scroll-snap-align: start;
     }
-
 }
