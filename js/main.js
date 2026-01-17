@@ -3,17 +3,23 @@
 // MENU BURGER MOBILE
 // =========================
 const burger = document.querySelector('.burger'); // le bouton burger
-const nav = document.querySelector('nav');         // ton menu nav
+const nav = document.querySelector('nav');         // le menu
 
 // Ouvre / ferme le menu au clic sur le burger
 burger.addEventListener('click', () => {
-    nav.classList.toggle('open'); // ajoute ou enlève la classe 'open'
+    nav.classList.toggle('open'); // ajoute/enlève la classe 'open'
 });
 
-// Ferme automatiquement le menu au clic sur un lien
+// Ferme automatiquement le menu au clic sur un lien et scroll vers la section
 nav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-        nav.classList.remove('open'); // retire la classe 'open'
+    link.addEventListener('click', (e) => {
+        nav.classList.remove('open'); // ferme le menu
+
+        // Scroll smooth vers la section
+        const target = document.querySelector(link.getAttribute('href'));
+        if(target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     });
 });
 

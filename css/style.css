@@ -549,29 +549,54 @@ footer {
         scroll-snap-align: start;           /* snap au début */
     }
 }
-/* SCROLLBAR COMMUNE POUR TOUS LES CONTENEURS HORIZONTAUX */
-.cards::-webkit-scrollbar,
-.prestations::-webkit-scrollbar,
-.animation-container::-webkit-scrollbar,
-.collaboration-container::-webkit-scrollbar,
-.logos-container::-webkit-scrollbar {
-    height: 8px; /* hauteur de la barre */
-}
 
-.cards::-webkit-scrollbar-thumb,
-.prestations::-webkit-scrollbar-thumb,
-.animation-container::-webkit-scrollbar-thumb,
-.collaboration-container::-webkit-scrollbar-thumb,
-.logos-container::-webkit-scrollbar-thumb {
-    background: #ffcc00; /* couleur du thumb */
-    border-radius: 4px;
-}
+/* =========================
+   SCROLLBAR MOBILE UNIFORME
+========================= */
+@media (max-width: 768px) {
+    .cards,
+    .prestations,
+    .animation-container,
+    .collaboration-container,
+    .logos-container {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
 
-/* Optionnel : couleur de fond de la scrollbar */
-.cards::-webkit-scrollbar-track,
-.prestations::-webkit-scrollbar-track,
-.animation-container::-webkit-scrollbar-track,
-.collaboration-container::-webkit-scrollbar-track,
-.logos-container::-webkit-scrollbar-track {
-    background: rgba(255,255,255,0.05); /* un fond discret */
+    /* Chrome, Edge, Safari */
+    .cards::-webkit-scrollbar,
+    .prestations::-webkit-scrollbar,
+    .animation-container::-webkit-scrollbar,
+    .collaboration-container::-webkit-scrollbar,
+    .logos-container::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .cards::-webkit-scrollbar-thumb,
+    .prestations::-webkit-scrollbar-thumb,
+    .animation-container::-webkit-scrollbar-thumb,
+    .collaboration-container::-webkit-scrollbar-thumb,
+    .logos-container::-webkit-scrollbar-thumb {
+        background: #ffcc00;
+        border-radius: 4px;
+    }
+
+    .cards::-webkit-scrollbar-track,
+    .prestations::-webkit-scrollbar-track,
+    .animation-container::-webkit-scrollbar-track,
+    .collaboration-container::-webkit-scrollbar-track,
+    .logos-container::-webkit-scrollbar-track {
+        background: rgba(255,255,255,0.05);
+    }
+
+    /* Firefox */
+    .cards,
+    .prestations,
+    .animation-container,
+    .collaboration-container,
+    .logos-container {
+        scrollbar-width: thin;
+        scrollbar-color: #ffcc00 rgba(255,255,255,0.05);
+    }
 }
