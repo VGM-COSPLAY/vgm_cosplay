@@ -1,6 +1,3 @@
-/* =========================
-   RESET & GLOBAL
-========================= */
 .burger {
     font-size: 30px;
     cursor: pointer;
@@ -202,6 +199,39 @@ header {
         object-fit: contain; /* plus aucune coupe */
     }
 }
+/* =========================
+   SCROLL HORIZONTAL MOBILE
+========================= */
+@media (max-width: 768px) {
+
+    .cards,
+    .prestations,
+    .animation-container,
+    .collaboration-container {
+        flex-wrap: nowrap;              /* une seule ligne */
+        overflow-x: auto;               /* scroll horizontal */
+        overflow-y: hidden;             /* pas de scroll vertical interne */
+        -webkit-overflow-scrolling: touch;
+        gap: 15px;
+        padding-bottom: 10px;
+    }
+
+    .card-box {
+        flex: 0 0 auto;                 /* empêche la réduction */
+        width: 260px;                   /* largeur stable */
+    }
+
+}
+    .cards,
+    .prestations,
+    .animation-container,
+    .collaboration-container {
+        scroll-snap-type: x mandatory;
+    }
+
+    .card-box {
+        scroll-snap-align: start;
+    }
 
 /* =========================
    BACK BUTTON
