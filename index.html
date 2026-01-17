@@ -13,7 +13,6 @@ body {
     background: #000;
     color: #fff;
 }
-
 /* HERO */
 .hero {
     height: 100vh;
@@ -26,34 +25,32 @@ body {
 /* SLOGAN – PAVÉ POSITIONNABLE */
 .slogan-box {
     position: absolute;
-
-    /* 🔧 COORDONNÉES MANUELLES 🔧 */
     left: 50%;
-    top: 65%;                /* ← monte / descend ici */
+    top: 58%; /* 🔹 descendu un peu plus haut pour laisser de l'espace */
     transform: translateX(-50%);
-
     background: rgba(0,0,0,0.75);
     padding: 25px 45px;
     border-radius: 12px;
     text-align: center;
+    max-width: 90%;
+    box-sizing: border-box;
 }
+
 
 .slogan-box h1 {
     margin: 0;
     font-size: 2.8em;
     line-height: 1.2;
-    white-space: nowrap; /* 🔒 UNE SEULE LIGNE */
+    white-space: normal; /* 🔹 autorise le retour à la ligne */
+    word-wrap: break-word; /* 🔹 coupe les mots trop longs si besoin */
 }
 
 /* BOUTON DÉCOUVRIR */
 .discover {
     position: absolute;
-
-    /* 🔧 COORDONNÉES MANUELLES 🔧 */
     left: 50%;
-    top: 80%;               /* ← monte / descend ici */
+    top: 80%;
     transform: translateX(-50%);
-
     text-decoration: none;
     background: #fff;
     color: #000;
@@ -63,33 +60,28 @@ body {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.discover {
-    transform: translateX(-50%);
-}
-
 .discover:hover {
     transform: translateX(-50%) scale(1.1);
     transform-origin: center;
 }
 
-}
-
-/* RESPONSIVE */
+/* RESPONSIVE MOBILE */
 @media (max-width: 768px) {
-    .slogan-box h1 {
-        font-size: 2em;
-        white-space: normal; /* 🔓 autorise retour à la ligne sur mobile */
-    }
-
     .slogan-box {
         top: 60%;
-        padding: 20px 30px;
+        padding: 20px 20px; /* 🔹 padding plus petit pour petits écrans */
+    }
+
+    .slogan-box h1 {
+        font-size: 2em;
     }
 
     .discover {
         top: 78%;
+        padding: 12px 30px; /* 🔹 bouton plus adapté sur mobile */
     }
 }
+
 </style>
 </head>
 
