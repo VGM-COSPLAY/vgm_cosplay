@@ -75,26 +75,32 @@ body {
 }
 /* RESPONSIVE MOBILE */
 @media (max-width: 768px) {
+    .hero {
+        background: url("images/logo_mobile.png") center center no-repeat;
+        background-size: contain;
+    }
+
     .slogan-box {
-        top: 48%;
-        padding: 12px 15px;
-        max-width: 90%;   /* 🔥 PLUS LARGE = moins de lignes */
+        top: 45%;                /* remonter le slogan */
+        padding: 10px 15px;      /* padding plus petit */
+        max-width: 280px;         /* largeur adaptée au texte */
+        width: auto;
+        text-align: center;
     }
 
     .slogan-box h1 {
-        font-size: 1.3em;   /* légèrement plus petit */
-        line-height: 1.2;
+        font-size: 1.1em;         /* texte plus petit */
+        line-height: 1.25;
         white-space: normal;
+        word-wrap: break-word;
     }
-}
-
-
 
     .discover {
         top: 78%;
-        padding: 12px 30px; /* 🔹 bouton plus adapté sur mobile */
+        padding: 12px 25px;       /* bouton plus adapté sur mobile */
     }
 }
+
 
 </style>
 </head>
