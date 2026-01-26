@@ -81,25 +81,26 @@ body {
     }
 
     .slogan-box {
-        top: 45%;                /* remonter le slogan */
-        padding: 10px 15px;      /* padding plus petit */
-        max-width: 280px;         /* largeur adaptée au texte */
-        width: auto;
+        top: 45%;
+        padding: 8px 12px;       /* padding plus petit */
+        max-width: 95%;          /* quasi toute la largeur de l'écran */
         text-align: center;
     }
 
     .slogan-box h1 {
-        font-size: 1.1em;         /* texte plus petit */
-        line-height: 1.25;
-        white-space: normal;
-        word-wrap: break-word;
+        font-size: 1em;          /* taille plus petite pour tenir sur 1 ligne */
+        line-height: 1.1;
+        white-space: nowrap;     /* 🔥 interdit les retours à la ligne */
+        overflow: hidden;
+        text-overflow: ellipsis; /* tronque si ça déborde légèrement */
     }
 
     .discover {
-        top: 78%;
-        padding: 12px 25px;       /* bouton plus adapté sur mobile */
+        top: 75%;
+        padding: 10px 25px;
     }
 }
+
 
 
 </style>
