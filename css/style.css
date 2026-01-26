@@ -4,12 +4,7 @@
     display: none;  /* 🔹 cacher sur desktop */
 }
 
-nav a {
-    padding: 15px;
-    border-bottom: 1px solid #333;
-    color: #fff;
-    text-decoration: none;
-}
+
 /* Menu desktop (visible sur desktop) */
 nav {
     display: flex;           /* 🔹 flex horizontal */
@@ -106,11 +101,10 @@ header {
 ========================= */
 .logos-container {
     display: flex;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 30px;
-    margin-top: 40px;
     align-items: center;
 }
+
 .logos-container .card-box {
     width: 100%;       /* prend toute la largeur du "grid cell" */
     padding: 10px;
@@ -492,30 +486,14 @@ footer {
 ========================= */
 @media (max-width: 768px) {
 
-    .cards,
-    .prestations,
-    .animation-container,
-    .collaboration-container {
-        display: flex !important;           /* force flex */
-        flex-direction: row !important;     /* ligne horizontale */
-        flex-wrap: nowrap !important;       /* pas de retour à la ligne */
-        overflow-x: auto;                   /* scroll horizontal */
-        overflow-y: hidden;
-        -webkit-overflow-scrolling: touch;
-        gap: 15px;
-        padding-bottom: 10px;
-
-        justify-content: flex-start;        /* alignement gauche */
-        scroll-snap-type: x mandatory;
-    }
-
-    .card-box {
-        flex: 0 0 auto;                     /* taille fixe et pas d'étirement */
-        width: 260px;
-        scroll-snap-align: start;
+    .hero {
+        background: url("images/logo_mobile.png") center center no-repeat;
+        background-size: contain;
     }
 
 }
+
+
 @media (max-width: 768px) {
 
     .cards,
