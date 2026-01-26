@@ -138,7 +138,29 @@ header {
     object-fit: contain; /* 🔥 IMPORTANT : plus de coupe */
     background: #000;
 }
+/* Contrôles */
+.video-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.6);
+  padding: 10px 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 10;
+}
 
+.video-controls button {
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.video-controls input[type="range"] {
+  cursor: pointer;
+}
 
 .section {
     padding: 70px 20px;

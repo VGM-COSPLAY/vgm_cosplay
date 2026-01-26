@@ -155,3 +155,31 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("vgm_visits", count);
     if(counterEl) counterEl.textContent = count;
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const video = document.getElementById('heroVideo');
+  const playPauseBtn = document.getElementById('playPauseBtn');
+  const volumeRange = document.getElementById('volumeRange');
+
+  if (video && playPauseBtn && volumeRange) {
+    // Play / Pause
+    playPauseBtn.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        playPauseBtn.textContent = '⏸️';
+      } else {
+        video.pause();
+        playPauseBtn.textContent = '▶️';
+      }
+    });
+
+    // Volume
+    volumeRange.addEventListener('input', () => {
+      video.volume = volumeRange.value;
+    });
+
+    // Débloquer le son au premier clic si nécessaire
+    video.muted = false;
+    video.volume = 0.5;
+  }
+});

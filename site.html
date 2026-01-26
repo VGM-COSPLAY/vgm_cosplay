@@ -25,28 +25,28 @@
 
 </header>
 
-<section class="hero-video">
-  <video
-    src="videos/video_promo_vgm.mp4"
-    autoplay
-    muted
-    loop
-    playsinline
-  ></video>
+<div class="hero-video">
+  <video id="heroVideo" width="100%" height="100%" autoplay muted loop>
+    <source src="videos/video_promo_vgm.mp4" type="video/mp4">
+    Votre navigateur ne supporte pas la vidéo.
+  </video>
 
-  <div class="hero-overlay">
-    <img src="images/logo.png" alt="VGM Cosplay" class="hero-logo">
-    <p>Donner de la hauteur à vos évènement !</p>
-
+  <!-- Contrôles -->
+  <div class="video-controls">
+    <button id="playPauseBtn">▶️</button>
+    <label for="volumeRange">Volume:</label>
+    <input type="range" id="volumeRange" min="0" max="1" step="0.01" value="0.5">
   </div>
-</section>
+</div>
+
+
 <section class="section" id="costumes">
 <h2>Nos Costumes</h2>
 
 <p>
 Découvrez notre collection de costumes uniques et spectaculaires, conçus pour émerveiller petits et grands. 
-<br>Chaque personnage est minutieusement réalisé pour offrir un visuel impressionnant et une présence scénique mémorable lors de vos événements.
-</p>
+<br>Chaque personnage est minutieusement réalisé pour offrir un visuel impressionnant et une présence scénique mémorable lors de vos événements.  
+</p><br>
 
 
 <div class="cards">
@@ -148,7 +148,7 @@ Découvrez notre collection de costumes uniques et spectaculaires, conçus pour 
     <p>
         VGM Cosplay propose des animations spectaculaires sur échasses et en déambulation,
         adaptées à tous types d’événements, publics comme privés.
-    </p>
+    </p><br>
 
     <div class="prestations">
 
@@ -188,7 +188,7 @@ Découvrez notre collection de costumes uniques et spectaculaires, conçus pour 
         VGM Cosplay propose des animations micro complètes pour vos événements :
         jeux interactifs, conférences avec invités, planning détaillé sur tout le week-end.<br>
         Nous disposons également d'une régie sonore professionnelle pour garantir une ambiance optimale.
-    </p>
+    </p><br>
 
     <div class="animation-container">
     <div class="animation card-box reveal">
@@ -219,7 +219,7 @@ Découvrez notre collection de costumes uniques et spectaculaires, conçus pour 
 	<p>
 Participez à nos ateliers créatifs et immersifs, où imagination et savoir-faire se rencontrent. 
 <br>Encadrés par des animateurs passionnés, les participants peuvent créer, apprendre et s’amuser en donnant vie à des projets variés et originaux.
-</p>
+</p><br>
 
 	
 
@@ -263,7 +263,7 @@ L'atelier stop motion est une plongée dans l'univers du cinéma d'animation, o�
     <p>
         VGM Cosplay a eu le plaisir d’intervenir lors de nombreux salons,
         conventions et projections cinéma.
-    </p>
+    </p><br>
 
     <div class="logos-container">
 
@@ -334,7 +334,7 @@ L'atelier stop motion est une plongée dans l'univers du cinéma d'animation, o�
         <br>
         Une collaboration pensée pour intensifier l’ambiance, enrichir la mise en scène
         et marquer durablement le public.
-    </p>
+    </p><br>
 
     <div class="collaboration-container">
 
@@ -423,7 +423,7 @@ L'atelier stop motion est une plongée dans l'univers du cinéma d'animation, o�
 
 
 <footer>
-<small>VGM Cosplay — Version 1.2.13 • © 2026</small>
+<small>VGM Cosplay — Version 1.3.3 • © 2026</small>
 </footer>
 
 <div id="visitor-counter">Visiteur <span id="visitor-number">0</span></div>
