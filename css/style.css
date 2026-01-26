@@ -484,14 +484,6 @@ footer {
 /* =========================
    SCROLL HORIZONTAL MOBILE
 ========================= */
-@media (max-width: 768px) {
-
-    .hero {
-        background: url("images/logo_mobile.png") center center no-repeat;
-        background-size: contain;
-    }
-
-}
 
 
 @media (max-width: 768px) {
