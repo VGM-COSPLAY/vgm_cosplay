@@ -320,6 +320,11 @@ header {
     border-radius: 12px;
     overflow: hidden;
 }
+.hero-video-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
 .card-box img,
 .card-box .card-image {
@@ -627,8 +632,7 @@ footer {
     padding: 8px 12px;            /* plus compact */
     gap: 8px;
     border-radius: 10px;
-    background: rgba(0,0,0,0.45);
-    backdrop-filter: blur(6px);
+    background: rgba(75, 75, 75, 0.6);
   }
 
   .video-controls button {
