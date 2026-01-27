@@ -628,7 +628,7 @@ footer {
 
   .video-controls {
     bottom: 0;                       /* base fixe */
-    transform: translate(-50%, -20px); /* ⬇ descend vraiment */
+    transform: translate(-50%, 0px); /* ⬇ descend vraiment */
     padding: 8px 12px;            /* plus compact */
     gap: 8px;
     border-radius: 10px;
