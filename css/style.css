@@ -663,15 +663,11 @@ footer {
 /* --- VERSION MOBILE --- */
 @media (max-width: 768px) {
   .stamp {
-    font-weight: normal;       /* plus de gras */
+    font-weight: bold;       /* plus de gras */
     font-size: 10px;           /* plus petit texte */
     padding: 6px 8px;          /* pastille plus petite */
     top: 8px;
     left: 8px;
     transform: rotate(-4deg);
-  }
-  .stamp.second {
-    top: 40px;
-    transform: rotate(2deg);
   }
 }
