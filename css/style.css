@@ -26,6 +26,7 @@ nav a:hover {
     transition: color 0.3s, transform 0.3s;
 }
 
+/* Media query mobile / menu burger */
 @media (max-width: 900px) {
 
     .burger {
@@ -37,28 +38,27 @@ nav a:hover {
         flex-direction: column;
         position: absolute;
         top: 70px;
-        right: 0;
-        background: rgba(0, 0, 0, 0.95);
+        left: 0;                 /* on commence à gauche */
+        width: 100%;             /* menu prend toute la largeur */
+        background: rgba(0,0,0,0.95);
         backdrop-filter: blur(6px);
-        width: 100%;
         padding: 20px 0;
+        align-items: center;     /* centre les liens horizontalement */
+        z-index: 100;
     }
-    
 
-    @media (max-width: 900px) {
     nav.open {
         display: flex;
-        flex-direction: column;
-        align-items: center; /* CENTRER les liens horizontalement */
-        justify-content: flex-start; /* liens du haut */
     }
 
     nav a {
         padding: 12px 0;
         font-size: 1.2rem;
-        text-align: center; /* pour s’assurer que le texte est centré */
+        text-align: center;
+        width: 100%;             /* pour que le clic soit plus facile sur mobile */
     }
 }
+
 
 
 
@@ -150,19 +150,20 @@ header {
     object-fit: contain; /* 🔥 IMPORTANT : plus de coupe */
     background: #000;
 }
-/* Contrôles */
+
+/* Desktop */
 .video-controls {
-  position: absolute;
-  bottom: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(75, 75, 75, 0.6);
-  padding: 10px 40px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  z-index: 10;
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+    background: rgba(75,75,75,0.6);
+    padding: 10px 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 10;
 }
 
 .video-controls button {
@@ -329,9 +330,9 @@ header {
     overflow: hidden;
 }
 .hero-video-wrapper {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .card-box img,
@@ -632,29 +633,31 @@ footer {
         scrollbar-color: #ffcc00 rgba(255,255,255,0.05);
     }
 }
+
+/* Mobile */
 @media (max-width: 768px) {
+    .video-controls {
+        position: relative;       /* change de absolute à relative */
+        left: 0;
+        transform: none;
+        margin: 10px auto 0 auto; /* centre sous la vidéo */
+        padding: 8px 12px;
+        gap: 8px;
+        border-radius: 10px;
+        width: fit-content;
+        background: rgba(75,75,75,0.6);
+    }
 
-  .video-controls {
-    margin-top: 10px; /* plus petit pour mobile */
-    padding: 8px 10px;
-    padding: 8px 12px;            /* plus compact */
-    gap: 8px;
-    border-radius: 10px;
-    background: rgba(75, 75, 75, 0.6);
-    
-  }
+    .video-controls button {
+        font-size: 1.4em;
+    }
 
-  .video-controls button {
-    font-size: 1.4em;             /* bouton plus gros pour le doigt */
-  }
+    .video-controls label {
+        display: none;
+    }
 
-  .video-controls label {
-    display: none;                /* cache "Volume:" sur mobile */
-  }
-
-  .video-controls input[type="range"] {
-    width: 90px;                  /* slider plus court */
-  }
+    .video-controls input[type="range"] {
+        width: 90px;
+    }
 }
-
 
