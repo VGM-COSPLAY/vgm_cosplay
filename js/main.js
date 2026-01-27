@@ -157,33 +157,67 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-const video = document.getElementById("heroVideo");
-const playPauseBtn = document.getElementById("playPauseBtn");
+document.addEventListener("DOMContentLoaded", () => {
 
-// Fonction pour mettre à jour le bouton
-function updatePlayPauseButton() {
-    playPauseBtn.textContent = video.paused ? "▶️" : "⏸️";
-}
+    const video = document.getElementById("heroVideo");
+    const playPauseBtn = document.getElementById("playPauseBtn");
+    const volumeSlider = document.getElementById("volumeRange");
 
-// Dès que la page est chargée, mettre le bouton en cohérence
-window.addEventListener("load", () => {
-    updatePlayPauseButton();
-});
+    if (!video) return;
 
-// Dès que la vidéo commence à jouer
-video.addEventListener("play", updatePlayPauseButton);
+    /* =========================
+       PLAY / PAUSE
+    ========================= */
 
-// Dès que la vidéo est en pause
-video.addEventListener("pause", updatePlayPauseButton);
-
-// Clic sur le bouton
-playPauseBtn.addEventListener("click", () => {
-    if (video.paused) {
-        video.play();
-    } else {
-        video.pause();
+    function updatePlayPauseButton() {
+        if (!playPauseBtn) return;
+        playPauseBtn.textContent = video.paused ? "▶️" : "⏸️";
     }
+
+    updatePlayPauseButton();
+
+    video.addEventListener("play", updatePlayPauseButton);
+    video.addEventListener("pause", updatePlayPauseButton);
+
+    if (playPauseBtn) {
+        playPauseBtn.addEventListener("click", () => {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+    }
+
+    /* =========================
+       VOLUME
+    ========================= */
+
+    if (volumeSlider) {
+        video.volume = volumeSlider.value;
+
+        volumeSlider.addEventListener("input", () => {
+            video.volume = volumeSlider.value;
+        });
+    }
+
+    /* =========================
+       DÉBLOCAGE SON (OBLIGATOIRE)
+    ========================= */
+
+    function unlockSound() {
+        video.muted = false;
+        document.removeEventListener("click", unlockSound);
+        document.removeEventListener("touchstart", unlockSound);
+    }
+
+    document.addEventListener("click", unlockSound);
+    document.addEventListener("touchstart", unlockSound);
 });
+
+
+
+
 /* =========================
    MASQUAGE DES BOUTONS FLOTTANTS AU FOOTER (MOBILE)
 ========================= */
