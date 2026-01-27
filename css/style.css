@@ -155,7 +155,7 @@ header {
 .video-controls {
     position: absolute;
     left: 50%;
-    bottom: 10px;
+    bottom: -60px;
     transform: translateX(-50%);
     background: rgba(75,75,75,0.6);
     padding: 10px 40px;
