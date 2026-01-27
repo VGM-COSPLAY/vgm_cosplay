@@ -35,7 +35,7 @@ nav a:hover {
     nav {
         display: none;
         flex-direction: column;
-        position: absolute;
+        position: center;
         top: 70px;
         right: 0;
         background: rgba(0, 0, 0, 0.95);
