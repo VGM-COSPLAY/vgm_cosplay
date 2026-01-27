@@ -618,7 +618,7 @@ footer {
 @media (max-width: 768px) {
 
   .video-controls {
-    bottom: 2px;                 /* un peu plus haut */
+    bottom: 25px;                 /* un peu plus haut */
     padding: 8px 12px;            /* plus compact */
     gap: 8px;
     border-radius: 10px;
