@@ -156,30 +156,33 @@ document.addEventListener("DOMContentLoaded", () => {
     if(counterEl) counterEl.textContent = count;
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const video = document.getElementById('heroVideo');
-  const playPauseBtn = document.getElementById('playPauseBtn');
-  const volumeRange = document.getElementById('volumeRange');
 
-  if (video && playPauseBtn && volumeRange) {
-    // Play / Pause
-    playPauseBtn.addEventListener('click', () => {
-      if (video.paused) {
-        video.play();
-        playPauseBtn.textContent = '⏸️';
-      } else {
-        video.pause();
-        playPauseBtn.textContent = '▶️';
-      }
-    });
+const video = document.getElementById("heroVideo");
+const playPauseBtn = document.getElementById("playPauseBtn");
 
-    // Volume
-    volumeRange.addEventListener('input', () => {
-      video.volume = volumeRange.value;
-    });
+// Fonction pour mettre à jour le bouton
+function updatePlayPauseButton() {
+    playPauseBtn.textContent = video.paused ? "▶️" : "⏸️";
+}
 
-    // Débloquer le son au premier clic si nécessaire
-    video.muted = false;
-    video.volume = 0.5;
-  }
+// Dès que la page est chargée, mettre le bouton en cohérence
+window.addEventListener("load", () => {
+    updatePlayPauseButton();
 });
+
+// Dès que la vidéo commence à jouer
+video.addEventListener("play", updatePlayPauseButton);
+
+// Dès que la vidéo est en pause
+video.addEventListener("pause", updatePlayPauseButton);
+
+// Clic sur le bouton
+playPauseBtn.addEventListener("click", () => {
+    if (video.paused) {
+        video.play();
+    } else {
+        video.pause();
+    }
+});
+
+
