@@ -127,9 +127,13 @@ header {
     max-width: 1200px;   /* largeur max sur desktop */
     margin: 0 auto;      /* centrage horizontal */
     height: 80vh;        /* moins haut que 100vh */
-    overflow: hidden;
+    overflow: visible;
     background: #000;
     border-radius: 20px; /* optionnel mais très classe */
+}
+.hero-video video {
+    display: block;
+    border-radius: inherit;
 }
 
 .hero-video video {
@@ -619,7 +623,7 @@ footer {
 
   .video-controls {
     bottom: 0;                       /* base fixe */
-    transform: translate(-50%, 20px); /* ⬇ descend vraiment */
+    transform: translate(-50%, -20px); /* ⬇ descend vraiment */
     padding: 8px 12px;            /* plus compact */
     gap: 8px;
     border-radius: 10px;
