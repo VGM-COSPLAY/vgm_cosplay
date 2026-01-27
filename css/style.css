@@ -35,23 +35,31 @@ nav a:hover {
     nav {
         display: none;
         flex-direction: column;
-        position: center;
+        position: absolute;
         top: 70px;
         right: 0;
         background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(6px);
         width: 100%;
         padding: 20px 0;
     }
+    
 
+    @media (max-width: 900px) {
     nav.open {
         display: flex;
+        flex-direction: column;
+        align-items: center; /* CENTRER les liens horizontalement */
+        justify-content: flex-start; /* liens du haut */
     }
 
     nav a {
         padding: 12px 0;
         font-size: 1.2rem;
+        text-align: center; /* pour s’assurer que le texte est centré */
     }
 }
+
 
 
 
@@ -627,12 +635,13 @@ footer {
 @media (max-width: 768px) {
 
   .video-controls {
-    bottom: 20;                       /* base fixe */
-    transform: translate(-50%, 30px); /* ⬇ descend vraiment */
+    margin-top: 10px; /* plus petit pour mobile */
+    padding: 8px 10px;
     padding: 8px 12px;            /* plus compact */
     gap: 8px;
     border-radius: 10px;
     background: rgba(75, 75, 75, 0.6);
+    
   }
 
   .video-controls button {
