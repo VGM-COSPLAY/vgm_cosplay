@@ -184,5 +184,28 @@ playPauseBtn.addEventListener("click", () => {
         video.pause();
     }
 });
+/* =========================
+   MASQUAGE DES BOUTONS FLOTTANTS AU FOOTER (MOBILE)
+========================= */
+document.addEventListener("DOMContentLoaded", () => {
+    const footer = document.querySelector("footer");
+
+    if (!footer) return;
+
+    const observer = new IntersectionObserver(
+        ([entry]) => {
+            if (entry.isIntersecting) {
+                document.body.classList.add("footer-visible");
+            } else {
+                document.body.classList.remove("footer-visible");
+            }
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+    observer.observe(footer);
+});
 
 
