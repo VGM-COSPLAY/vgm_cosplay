@@ -615,4 +615,25 @@ footer {
         scrollbar-color: #ffcc00 rgba(255,255,255,0.05);
     }
 }
+@media (max-width: 768px) {
+
+  .video-controls {
+    bottom: 12px;                 /* un peu plus haut */
+    padding: 8px 12px;            /* plus compact */
+    gap: 8px;
+    border-radius: 10px;
+  }
+
+  .video-controls button {
+    font-size: 1.4em;             /* bouton plus gros pour le doigt */
+  }
+
+  .video-controls label {
+    display: none;                /* cache "Volume:" sur mobile */
+  }
+
+  .video-controls input[type="range"] {
+    width: 90px;                  /* slider plus court */
+  }
+}
 
