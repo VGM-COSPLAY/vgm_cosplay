@@ -618,10 +618,13 @@ footer {
 @media (max-width: 768px) {
 
   .video-controls {
-    bottom: 25px;                 /* un peu plus haut */
+    bottom: 0;                       /* base fixe */
+    transform: translate(-50%, 20px); /* ⬇ descend vraiment */
     padding: 8px 12px;            /* plus compact */
     gap: 8px;
     border-radius: 10px;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(6px);
   }
 
   .video-controls button {
@@ -636,4 +639,5 @@ footer {
     width: 90px;                  /* slider plus court */
   }
 }
+
 
