@@ -141,15 +141,15 @@ header {
 /* Contrôles */
 .video-controls {
   position: absolute;
-  bottom: 20px;
+  bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0,0,0,0.6);
-  padding: 10px 20px;
+  background: rgba(75, 75, 75, 0.6);
+  padding: 10px 40px;
   border-radius: 12px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
   z-index: 10;
 }
 
@@ -357,7 +357,58 @@ header {
 .card-box:hover h3 {
   opacity: 0;
 }
+.costume-card {
+  position: relative;
+  display: inline-block;
+}
 
+/* Image */
+.costume-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Base pastille */
+.stamp {
+  position: absolute;
+  top: 15px;
+  left: 12px;
+  padding: 10px 14px;
+  border-radius: 50%;
+  font-family: 'Arial Black', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  border: 6px solid;
+  transform: rotate(-8deg);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+/* Couleurs */
+.stamp-blue {
+  color: #ffffff;       
+  background: #1f4fa3;
+  border-color: #1f4fa3;
+}
+
+.stamp-purple {
+  color: #ffffff;        
+  background: #ca0287;
+  border-color: #ca0287;
+}
+.stamp-green {
+  color: #ffffff;        
+  background: #31ca02;
+  border-color: #31ca02;
+}
+.stamp-white {
+  color: #000000;        
+  background: #ffffff;
+  border-color: #ffffff;
+}
 
 /* =========================
    CONTACT / ICONS / QR
