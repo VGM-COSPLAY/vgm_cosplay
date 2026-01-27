@@ -419,8 +419,8 @@ header {
 }
 .stamp-green {
   color: #ffffff;        
-  background: #31ca02;
-  border-color: #31ca02;
+  background: #b9ed03;
+  border-color: #b9ed03;
 }
 .stamp-white {
   color: #000000;        
@@ -612,7 +612,7 @@ footer {
     .animation-container::-webkit-scrollbar,
     .collaboration-container::-webkit-scrollbar,
     .logos-container::-webkit-scrollbar {
-        height: 12px;
+        height: 24px;
     }
 
     .cards::-webkit-scrollbar-thumb,
@@ -621,7 +621,7 @@ footer {
     .collaboration-container::-webkit-scrollbar-thumb,
     .logos-container::-webkit-scrollbar-thumb {
         background: #ffcc00;
-        border-radius: 8px;
+        border-radius:10;
     }
 
     .cards,
@@ -671,3 +671,104 @@ footer {
     transform: rotate(-4deg);
   }
 }
+ .game-stand {
+  padding: 60px 20px;
+  background-color: #000000; /* léger contraste avec les autres sections */
+  text-align: center;
+  scroll-margin-top: 20px; /* ajuste cette valeur */
+}
+
+
+.game-stand-intro h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.game-stand-intro p {
+  font-size: 16px;
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+  color: #333;
+}
+
+.game-stand-teaser {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.stand-card {
+  position: relative;
+  width: 300px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.stand-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Pastille teaser bleu */
+.stand-card .stamp {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 8px 12px;
+  border-radius: 50%;
+  font-family: 'Arial', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-align: center;
+  border: 3px solid #1f4fa3;
+  color: #1f4fa3;
+  background: transparent;
+  transform: rotate(-6deg);
+}
+
+/* Note en bas */
+.game-stand-note {
+  font-size: 12px;
+  color: #666;
+  margin-top: 20px;
+}
+footer {
+  background-color: #111; /* ou ton fond actuel */
+  color: #fff;
+  padding: 20px 100px;
+  text-align: center;
+}
+
+.footer-content {
+  display: inline-flex;        /* garde le contenu de largeur minimale */
+  align-items: center;         /* logos alignés verticalement avec le texte */
+  gap: 20px;                   /* espace entre les logos et le texte */
+}
+
+.footer-logo {
+  width: 100px;                 /* taille des logos */
+  height: auto;
+  object-fit: contain;
+}
+
+/* Hover fun */
+.footer-logo:hover {
+  transform: scale(1.1) rotate(-5deg);
+  transition: transform 0.3s ease;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .footer-content {
+    gap: 10px;
+    flex-wrap: wrap;           /* permet de mettre texte sur deux lignes si besoin */
+    justify-content: center;
+  }
+
+  .footer-logo {
+    width: 30px;
+  }
+}
+
