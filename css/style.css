@@ -627,7 +627,7 @@ footer {
 @media (max-width: 768px) {
 
   .video-controls {
-    bottom: 0;                       /* base fixe */
+    bottom: 20;                       /* base fixe */
     transform: translate(-50%, 30px); /* ⬇ descend vraiment */
     padding: 8px 12px;            /* plus compact */
     gap: 8px;
