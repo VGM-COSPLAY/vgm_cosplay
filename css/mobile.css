@@ -215,3 +215,10 @@
     }
 }
 
+@media (max-width: 768px) {
+    .discover-inner {
+        padding: 15px 40px;  /* bouton plus compact */
+        font-size: 1em;      /* texte plus petit */
+    }
+}
+
