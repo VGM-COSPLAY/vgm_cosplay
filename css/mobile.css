@@ -1,4 +1,4 @@
-/* MOBILE UNIQUEMENT */
+
 @media (max-width: 768px) {
 
   /* Quand le footer est visible */
@@ -16,7 +16,7 @@
   }
 }
 
-/* Mobile */
+
 @media (max-width: 600px) {
   .footer-content {
     max-width: 90%;
@@ -34,7 +34,8 @@
 .contact-float-group .contact-float {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
-/* --- VERSION MOBILE --- */
+
+
 @media (max-width: 768px) {
   .stamp {
     font-weight: bold;       /* plus de gras */
@@ -47,7 +48,6 @@
 }
 
 
-/* Mobile */
 @media (max-width: 768px) {
     .video-controls {
         position: relative;       /* change de absolute à relative */
@@ -77,8 +77,6 @@
 /* =========================
    SCROLL HORIZONTAL MOBILE
 ========================= */
-
-
 @media (max-width: 768px) {
 
     .cards,
@@ -136,7 +134,7 @@
     }
 }
 
-/* Mobile */
+
 @media (max-width: 768px) {
     .hero-overlay h1 { font-size: 2.2em; }
     .hero-overlay p { font-size: 1em; }
@@ -156,7 +154,7 @@
     }
 }
 
-/* Media query mobile / menu burger */
+
 @media (max-width: 900px) {
 
     .burger {
@@ -189,9 +187,9 @@
     }
 }
 
-/* RESPONSIVE MOBILE */
+
 @media (max-width: 768px) {
-    .hero {
+    .home-hero {
         background: url("images/logo_mobile.png") center center no-repeat;
         background-size: contain;
     }
