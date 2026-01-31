@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VGM Cosplay</title>
 
+
 <style>
 /* RESET */
 body {
@@ -66,45 +67,10 @@ body {
     transform: translateX(-50%) scale(1.1);
     transform-origin: center;
 }
-@media (max-width: 768px) {
-
-    .hero {
-        background: url("images/logo_mobile.png") center center no-repeat;
-        background-size: contain;
-    }
-
-}
-/* RESPONSIVE MOBILE */
-@media (max-width: 768px) {
-    .hero {
-        background: url("images/logo_mobile.png") center center no-repeat;
-        background-size: contain;
-    }
-
-    .slogan-box {
-        top: 50%;
-        padding: 8px 12px;       /* padding plus petit */
-        max-width: 95%;          /* quasi toute la largeur de l'écran */
-        text-align: center;
-    }
-
-    .slogan-box h1 {
-        font-size: 1em;          /* taille plus petite pour tenir sur 1 ligne */
-        line-height: 1.1;
-        white-space: nowrap;     /* 🔥 interdit les retours à la ligne */
-        overflow: hidden;
-        text-overflow: ellipsis; /* tronque si ça déborde légèrement */
-    }
-
-    .discover {
-        top: 65%;
-        padding: 20px 50px;
-    }
-}
-
 
 
 </style>
+<link rel="stylesheet" href="css/mobile.css">
 </head>
 
 <body>
@@ -115,7 +81,7 @@ body {
         <h1>Donnez de la hauteur à vos événements !</h1>
     </div>
 
-    <a href="site.html" class="discover">Découvrir</a>
+    <a href="main.html" class="discover">Découvrir</a>
 
 </div>
 

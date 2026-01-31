@@ -1,0 +1,219 @@
+/* MOBILE UNIQUEMENT */
+@media (max-width: 768px) {
+
+  /* Quand le footer est visible */
+  body.footer-visible #visitor-counter {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+  }
+
+  /* Cacher UNIQUEMENT le bouton téléphone (le 3e) */
+  body.footer-visible .contact-float-group .contact-float:last-child {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .footer-content {
+    max-width: 90%;
+    gap: 10px;
+    justify-content: space-between; /* garde logos aux extrémités */
+  }
+
+  .footer-logo {
+    width: 30px;
+  }
+}
+
+/* Transition douce */
+#visitor-counter,
+.contact-float-group .contact-float {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+/* --- VERSION MOBILE --- */
+@media (max-width: 768px) {
+  .stamp {
+    font-weight: bold;       /* plus de gras */
+    font-size: 10px;           /* plus petit texte */
+    padding: 6px 8px;          /* pastille plus petite */
+    top: 8px;
+    left: 8px;
+    transform: rotate(-4deg);
+  }
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+    .video-controls {
+        position: relative;       /* change de absolute à relative */
+        left: 0;
+        transform: none;
+        margin: 20px auto 0 auto; /* centre sous la vidéo */
+        padding: 8px 12px;
+        gap: 8px;
+        border-radius: 10px;
+        width: fit-content;
+        background: rgba(75,75,75,0.6);
+    }
+
+    .video-controls button {
+        font-size: 1.4em;
+    }
+
+    .video-controls label {
+        display: none;
+    }
+
+    .video-controls input[type="range"] {
+        width: 90px;
+    }
+}
+
+/* =========================
+   SCROLL HORIZONTAL MOBILE
+========================= */
+
+
+@media (max-width: 768px) {
+
+    .cards,
+    .prestations,
+    .animation-container,
+    .collaboration-container,
+    .logos-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 15px;
+        padding-bottom: 10px;
+        justify-content: flex-start;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .card-box {
+        flex: 0 0 auto;
+        width: 260px;
+        scroll-snap-align: start;
+    }
+
+    .logos-container .card-box {
+        width: 140px;
+    }
+
+    /* SCROLLBAR UNIFORME */
+    .cards::-webkit-scrollbar,
+    .prestations::-webkit-scrollbar,
+    .animation-container::-webkit-scrollbar,
+    .collaboration-container::-webkit-scrollbar,
+    .logos-container::-webkit-scrollbar {
+        height: 24px;
+    }
+
+    .cards::-webkit-scrollbar-thumb,
+    .prestations::-webkit-scrollbar-thumb,
+    .animation-container::-webkit-scrollbar-thumb,
+    .collaboration-container::-webkit-scrollbar-thumb,
+    .logos-container::-webkit-scrollbar-thumb {
+        background: #ffcc00;
+        border-radius:10;
+    }
+
+    .cards,
+    .prestations,
+    .animation-container,
+    .collaboration-container,
+    .logos-container {
+        scrollbar-width: thin;
+        scrollbar-color: #ffcc00 rgba(255,255,255,0.05);
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero-overlay h1 { font-size: 2.2em; }
+    .hero-overlay p { font-size: 1em; }
+    .hero-logo { max-width: 220px; }
+
+    .logo { font-size: 24px; } /* ou 22px si tu veux que ça rentre */
+
+    .hero-video {
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9; /* garde le bon ratio */
+        border-radius: 0; /* plein bord sur mobile */
+    }
+
+    .hero-video video {
+        object-fit: contain; /* plus aucune coupe */
+    }
+}
+
+/* Media query mobile / menu burger */
+@media (max-width: 900px) {
+
+    .burger {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;                 /* on commence à gauche */
+        width: 100%;             /* menu prend toute la largeur */
+        background: rgba(0,0,0,0.95);
+        backdrop-filter: blur(6px);
+        padding: 20px 0;
+        align-items: center;     /* centre les liens horizontalement */
+        z-index: 100;
+    }
+
+    nav.open {
+        display: flex;
+    }
+
+    nav a {
+        padding: 12px 0;
+        font-size: 1.2rem;
+        text-align: center;
+        width: 100%;             /* pour que le clic soit plus facile sur mobile */
+    }
+}
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 768px) {
+    .hero {
+        background: url("images/logo_mobile.png") center center no-repeat;
+        background-size: contain;
+    }
+
+    .slogan-box {
+        top: 50%;
+        padding: 8px 12px;       /* padding plus petit */
+        max-width: 95%;          /* quasi toute la largeur de l'écran */
+        text-align: center;
+    }
+
+    .slogan-box h1 {
+        font-size: 1em;          /* taille plus petite pour tenir sur 1 ligne */
+        line-height: 1.1;
+        white-space: nowrap;     /* 🔥 interdit les retours à la ligne */
+        overflow: hidden;
+        text-overflow: ellipsis; /* tronque si ça déborde légèrement */
+    }
+
+    .discover {
+        top: 65%;
+        padding: 20px 50px;
+    }
+}
+
