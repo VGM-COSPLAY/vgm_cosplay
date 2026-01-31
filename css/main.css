@@ -34,39 +34,6 @@ nav a:hover {
     transition: color 0.3s, transform 0.3s;
 }
 
-/* Media query mobile / menu burger */
-@media (max-width: 900px) {
-
-    .burger {
-        display: block;
-    }
-
-    nav {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        left: 0;                 /* on commence à gauche */
-        width: 100%;             /* menu prend toute la largeur */
-        background: rgba(0,0,0,0.95);
-        backdrop-filter: blur(6px);
-        padding: 20px 0;
-        align-items: center;     /* centre les liens horizontalement */
-        z-index: 100;
-    }
-
-    nav.open {
-        display: flex;
-    }
-
-    nav a {
-        padding: 12px 0;
-        font-size: 1.2rem;
-        text-align: center;
-        width: 100%;             /* pour que le clic soit plus facile sur mobile */
-    }
-}
-
 
 
 body {
@@ -195,7 +162,6 @@ header {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-
 
 
 
