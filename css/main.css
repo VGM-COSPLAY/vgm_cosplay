@@ -64,7 +64,6 @@ nav a:hover {
 }
 
 
-
 body {
     font-family: Arial, sans-serif;
     background: #000;
@@ -149,6 +148,7 @@ header::after {
 ========================= */
 .hero-video {
     position: relative;
+    z-index: 1;
     max-width: 1200px;   /* largeur max sur desktop */
     margin: 0 auto;      /* centrage horizontal */
     height: 80vh;        /* moins haut que 100vh */
@@ -171,6 +171,8 @@ header::after {
 
 .video-controls {
     position: absolute;
+    
+    z-index: 1000; /* plus que le menu burger */
     left: 50%;
     bottom: -8%;               /* 🔥 RELATIF à la hauteur de la vidéo */
     transform: translateX(-50%);
@@ -189,6 +191,8 @@ header::after {
   font-size: 1.2em;
   cursor: pointer;
 }
+
+
 
 .video-controls input[type="range"] {
   cursor: pointer;
@@ -666,8 +670,21 @@ footer {
 .contact-float-group .contact-float {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
+/* 🔹 Desktop : bouton flottant caché */
+.agenda-float {
+    display: none;
+}
 
+.hero-video {
+    position: relative; /* pour que le z-index des enfants fonctionne */
+}
 
+.video-controls {
+    position: absolute; /* ou relative si tu veux juste l'intérieur du bloc */
+    z-index: 10;        /* plus grand que la vidéo (qui est par défaut 0) */
+}
 
-
+.hero-video video {
+    pointer-events: none; /* laisse les clics passer à l'élément au-dessus */
+}
 

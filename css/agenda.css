@@ -10,7 +10,7 @@
 }
 body {
     font-family: Arial, sans-serif;
-    background: url('images/fond_agenda.jpg') no-repeat center center/cover;
+    background: url('images/fond_agenda_desktop.jpg') no-repeat center center/cover;
     color: #ffffff;
     line-height: 1.6;
     min-height: 100vh;
@@ -197,12 +197,4 @@ footer {
     transform: scale(1.1) rotate(-5deg);
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-@media (max-width: 768px) {
-    .agenda-container h1 { font-size: 28px; }
-    .agenda-event { flex-direction: column; gap: 15px; align-items: center; }
-    .agenda-logo { max-width: 70px; }
-    .agenda-stamp { width: 40px; height: 40px; }
-}
+

@@ -3,7 +3,8 @@
 // MENU BURGER MOBILE
 // =========================
 const burger = document.querySelector('.burger'); // le bouton burger
-const nav = document.querySelector('nav');         // le menu
+const nav = document.getElementById('menu'); // ou document.querySelector('#menu')
+    
 
 // Ouvre / ferme le menu au clic sur le burger
 burger.addEventListener('click', () => {
@@ -242,4 +243,16 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(footer);
 });
 
+
+function openModal(id){
+    const modal = document.getElementById(id);
+    modal.style.display = "flex";
+    modal.querySelector('video').currentTime = 0;
+    modal.querySelector('video').play();
+}
+function closeModal(id){
+    const modal = document.getElementById(id);
+    modal.style.display = "none";
+    modal.querySelector('video').pause();
+}
 
