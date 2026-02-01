@@ -6,6 +6,11 @@
     box-sizing: border-box;
 }
 
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
 .burger {
     font-size: 30px;
     cursor: pointer;
@@ -622,5 +627,6 @@ footer {
 .contact-float-group .contact-float {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
+
 
 
