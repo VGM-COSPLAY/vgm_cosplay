@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agenda 2026 - VGM Cosplay</title>
+<link rel="stylesheet" href="css/agenda.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="site.html" class="back-btn">← Retour au site</a>
+    </nav>
+</header>
+
+<main class="agenda-container">
+    <h1>Agenda 2026</h1>
+
+    <!-- =====================
+         ÉVÉNEMENT 1
+    ===================== -->
+    <div class="agenda-event">
+        <div class="agenda-date">21 Mars<br>Caudry</div>
+    
+        <img src="images/pastilles/salon_st_patrick.png" alt="Salon 1" class="agenda-logo"
+             onclick="window.open('https://www.facebook.com/TheNightofSaintPatrick', '_blank')">
+
+        <div class="agenda-stamp" onclick="openModal('video1')"><img src="images/pastilles/st_patrick.png"></div>
+
+        <div class="modal" id="video1">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('video1')">&times;</span>
+                <video src="" controls autoplay></video>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================
+         ÉVÉNEMENT 2
+    ===================== -->
+    <div class="agenda-event">
+        <div class="agenda-date">21 & 22 Mars<br>Cambrai</div>
+
+        <img src="images/pastilles/salon_cambrai.png" alt="Salon 2" class="agenda-logo"
+             onclick="window.open('https://www.facebook.com/SalonMPCCambrai/', '_blank')">
+
+        <div class="agenda-stamp" onclick="openModal('video2')"><img src="images/pastilles/bao.png"></div>
+
+        <div class="modal" id="video2">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('video2')">&times;</span>
+                <video src="mp4videos/costumes/bao." controls autoplay></video>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<footer>
+    <div class="footer-content">
+        <img src="images/footer/logo_vgm.png" class="footer-logo" alt="Logo Footer 1">
+
+        <h4>VGM Cosplay<br>Version 1.7.3 • © 2026</h4>
+
+        <img src="images/footer/logo_kazuko.png" class="footer-logo" alt="Logo Footer 2">
+    </div>
+</footer>
+
+<script>
+function openModal(id){
+    const modal = document.getElementById(id);
+    modal.style.display = "flex";
+    modal.querySelector('video').currentTime = 0;
+    modal.querySelector('video').play();
+}
+function closeModal(id){
+    const modal = document.getElementById(id);
+    modal.style.display = "none";
+    modal.querySelector('video').pause();
+}
+</script>
+
+</body>
+</html>

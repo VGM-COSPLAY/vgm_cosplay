@@ -38,6 +38,30 @@ nav a:hover {
     transform: scale(1.1);        /* grossit légèrement */
     transition: color 0.3s, transform 0.3s;
 }
+/* Bouton agenda spécifique pour ne pas hériter du hover nav global */
+
+.agenda-btn {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #ffcc00;
+    color: #000;
+    font-weight: bold;
+    border-radius: 25px;
+
+    padding: 12px 40px;
+    min-width: 180px;
+
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.agenda-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255,204,0,0.6);
+    color: #000 !important;
+}
 
 
 
@@ -63,19 +87,38 @@ img, video {
     --anim-ease: ease-out;
 }
 
-/* =========================
-   HEADER / NAV / LOGO
-========================= */
 header {
-    background: #111;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     position: sticky;
     top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;            /* garde cette hauteur */
+    background-color: #111;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;     /* 🔹 on garde centré verticalement */
+    padding: 0 30px;         /* padding horizontal */
     z-index: 100;
 }
+
+header nav {
+    height: 100%;              /* 🔑 clé du problème */
+    display: flex;
+    align-items: center;       /* centrage vertical */
+}
+
+
+/* Optionnel : ajout d'une légère ombre pour le détacher du contenu */
+header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
 /* =========================
    SALONS / LOGOS
 ========================= */
@@ -94,9 +137,11 @@ header {
 }
 
 .logo {
-    font-weight: bold;
-    font-size: 32px;
-    margin: 0 auto;
+    display: block;       /* S'assure que l'image se comporte comme un bloc */
+    margin: 0 auto;       /* Centrage horizontal */
+    width: 125px;         /* Largeur du logo - ajuste selon ton besoin */
+    height: auto;         /* Garde les proportions */
+    max-width: 100%;
 }
 
 /* =========================
@@ -152,7 +197,7 @@ header {
 .section {
     padding: 70px 20px;
     text-align: center; /* centre les titres et paragraphes */
-     scroll-margin-top: 10px; /* correspond à la hauteur du menu burger */
+    scroll-margin-top: 10px; /* correspond à la hauteur du menu burger */
 }
 .section h2 {
   background: linear-gradient(
@@ -189,6 +234,7 @@ header {
     transform: scale(1.05);
     box-shadow: 0 0 15px rgba(255,204,0,0.6);
 }
+
 
 /* =========================
    CARDS (TOUTES) + SHADOW / HOVER / TILT
@@ -456,15 +502,6 @@ header {
     transform: translateY(0);
 }
 
-/* =========================
-   FOOTER
-========================= */
-footer {
-    background: #111;
-    padding: 30px;
-    text-align: center;
-    color: #aaa;
-}
 
 /* =========================
    CONTACT FLOAT BUTTONS
@@ -590,13 +627,15 @@ footer {
 }
 
 
+/* =========================
+   FOOTER
+========================= */
 footer {
-  background-color: #111;
-  color: #fff;
-  padding: 20px 10px;
-  text-align: center;
+    background: #111;
+    padding: 30px;
+    text-align: center;
+    color: #aaa;
 }
-
 /* Container des logos + texte */
 .footer-content {
   display: flex;                   /* ligne unique */
@@ -627,6 +666,8 @@ footer {
 .contact-float-group .contact-float {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
+
+
 
 
 
