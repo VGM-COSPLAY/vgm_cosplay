@@ -1,0 +1,200 @@
+/* =========================
+   RESET & BASE
+========================= */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background: url('images/fond_agenda_desktop.jpg') no-repeat center center/cover;
+    color: #ffffff;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================
+   HEADER
+========================= */
+header {
+    background: #111;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.back-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #ffcc00;
+    color: #000;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.back-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255,204,0,0.6);
+}
+
+/* =========================
+   AGENDA CONTAINER
+========================= */
+main.agenda-container {
+    flex: 1;
+    max-width: 1200px;
+    margin: 120px auto 80px auto;
+    padding: 0 20px;
+}
+.agenda-container h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(to right, #0e0e0e, #1a1a1a, #0e0e0e);
+    padding: 20px 0;
+}
+
+/* =========================
+   ÉVÉNEMENTS
+========================= */
+.agenda-event {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    background: rgba(0,0,0,0.6);
+    padding: 15px 20px;
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.agenda-event:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 40px rgba(20,10,147,0.85),
+                0 0 30px rgba(255,50,158,0.93);
+}
+
+/* Colonne date */
+.agenda-date {
+    min-width: 100px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+/* Colonne logo salon */
+.agenda-logo {
+    max-width: 200px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.agenda-logo:hover { transform: scale(1.1); }
+
+/* Colonne pastilles */
+.agenda-stamps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.agenda-stamp {
+    max-width: 200px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.agenda-stamp:hover { transform: scale(1.1); }
+
+/* Image dans la pastille */
+.agenda-stamp img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* =========================
+   MODAL VIDEO
+========================= */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 200;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    position: relative;
+    max-width: 600px;
+    width: 90%;
+}
+.modal-content video {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+}
+.close {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    background: #111;
+    padding: 30px 10px;
+    text-align: center;
+    color: #aaa;
+    flex-shrink: 0;
+}
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 600px;
+    margin: 0 auto;
+    gap: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.footer-logo {
+    width: 60px;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+.footer-logo:hover {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+

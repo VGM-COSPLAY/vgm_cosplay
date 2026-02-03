@@ -158,14 +158,12 @@ header::after {
 }
 .hero-video video {
     display: block;
-    border-radius: inherit;
-}
-
-.hero-video video {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* 🔥 IMPORTANT : plus de coupe */
+    object-fit: contain;
     background: #000;
+    border-radius: inherit;
+    pointer-events: none;
 }
 
 
@@ -675,16 +673,17 @@ footer {
     display: none;
 }
 
-.hero-video {
-    position: relative; /* pour que le z-index des enfants fonctionne */
+/* ===========================
+   DESKTOP — PAS DE CONTACT MOBILE
+   =========================== */
+@media (min-width: 769px) {
+    .contact-master {
+        display: none;
+    }
 }
 
-.video-controls {
-    position: absolute; /* ou relative si tu veux juste l'intérieur du bloc */
-    z-index: 10;        /* plus grand que la vidéo (qui est par défaut 0) */
-}
-
-.hero-video video {
-    pointer-events: none; /* laisse les clics passer à l'élément au-dessus */
+/* Desktop par défaut */
+.mobile-only {
+    display: none;
 }
 
