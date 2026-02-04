@@ -10,6 +10,12 @@ body.footer-visible .contact-master {
     transform: translateY(20px);
     transition: opacity 0.6s ease, transform 0.3s ease;
 }
+@media (max-width: 768px) {
+    footer {
+        padding: 20px 12px;   /* plus d’espace vertical */
+        height: auto;         /* évite toute coupe */
+    }
+}
 
 
     #visitor-counter,
@@ -296,23 +302,22 @@ body.footer-visible .contact-master {
     z-index: 999;
 }
 
-/* Style commun à TOUS les boutons */
 .mobile-only .contact-float,
-.contact-toggle {
-    width: 160px;
-    padding: 14px 0;
-    border-radius: 50px;
+.mobile-only .contact-toggle {
+    width: 120px;          /* ⬅ réduit la largeur */
+    padding: 10px 0;       /* ⬅ réduit le jaune */
+    font-size: 0.85rem;    /* ⬅ texte plus petit */
+    border-radius: 22px;   /* ⬅ plus élégant */
     background-color: #ffcc00;
     color: #111;
     font-weight: bold;
-    font-size: 1rem;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    padding: 14px 20px;
+    justify-content: center;
 }
+
 
 /* Conteneur Contacts */
 .contact-master {
@@ -341,18 +346,18 @@ body.footer-visible .contact-master {
 .contact-master.open .contact-sub {
     opacity: 1;
     pointer-events: auto;
-    transform: translateX(-80px);
+    transform: translateX(-85px);
 }
 
 
 .contact-sub .contact-float {
     background: transparent;
     box-shadow: none;
-    padding: 5px;
+    padding: 4px;
 }
 .contact-sub img {
-    width: 45px;
-    height: 45px;
+    width: 36px;
+    height: 36px;
     display: block;
 }
 }
