@@ -328,6 +328,7 @@ header::after {
     border-radius: 12px;
     overflow: hidden;
 }
+
 .hero-video-wrapper {
     position: relative;
     max-width: 1200px;
@@ -356,17 +357,27 @@ header::after {
 
 .card-box.active .details { max-height: 1000px; }
 
+/* vidéo alignée exactement sur l'image */
 .card-box .card-video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: auto;
-    max-height: 100%;
+    height: auto;  /* la vidéo garde la hauteur de l'image */
+    max-height: 100%; /* jamais plus grande que la carte initiale */
+    object-fit: cover;
     border-radius: 12px;
+    opacity: 0;
     z-index: 2;
-    display: none;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
 }
+
+.card-box:hover .card-video {
+    opacity: 1;
+}
+
+
 .card-box h3 {
   transition: opacity 0.01s ease;
 }
