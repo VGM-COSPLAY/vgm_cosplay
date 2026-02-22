@@ -3,9 +3,7 @@
 ========================= */
 @media (max-width: 768px) {
 
-    /* =========================
-       HEADER
-    ========================= */
+    /* HEADER */
     header {
         position: sticky;
         top: 0;
@@ -13,21 +11,34 @@
         z-index: 1001;
         background-color: #111;
         padding: 10px 15px;
+        display: flex;
+        align-items: center;
     }
 
     .back-btn {
         padding: 8px 20px;
         font-size: 0.9em;
         border-radius: 20px;
+        display: inline-block;
+        background-color: #ffcc00;
+        color: #000;
+        font-weight: bold;
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    /* =========================
-       AGENDA CONTAINER
-    ========================= */
+    .back-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(255,204,0,0.6);
+    }
+
+    /* AGENDA CONTAINER */
     main.agenda-container {
+        display: flex;
+        flex-direction: column; /* événements en colonne */
+        gap: 20px;
         margin: 100px 10px 60px 10px;
         padding: 0 10px;
-        flex-direction: column;
     }
 
     .agenda-container h1 {
@@ -37,103 +48,64 @@
         padding: 15px 0;
     }
 
-    /* =========================
-       ÉVÉNEMENTS
-    ========================= */
+    /* ÉVÉNEMENTS */
     .agenda-event {
-        flex-direction: column;
-        gap: 15px;
+        display: flex;
+        flex-direction: row; /* date à gauche, images à droite */
         align-items: center;
+        gap: 15px;
         padding: 12px 15px;
         background: rgba(0,0,0,0.6);
         border-radius: 10px;
         transition: transform 0.3s, box-shadow 0.3s;
     }
+
     .agenda-event:hover {
         transform: scale(1.02);
         box-shadow: 0 15px 30px rgba(20,10,147,0.85),
                     0 0 20px rgba(255,50,158,0.93);
     }
 
+    /* Colonne date */
     .agenda-date {
+        min-width: 80px;
         text-align: center;
+        font-weight: bold;
         font-size: 14px;
     }
 
-    .agenda-logo {
-        max-width: 70px;
-        cursor: pointer;
-        transition: transform 0.3s;
-    }
-    .agenda-logo:hover { transform: scale(1.1); }
-
-    .agenda-stamps {
+    /* Wrapper images salon + costume */
+    .agenda-images {
         display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        justify-content: center;
+        flex-direction: row;
+        gap: 50px;
+        align-items: center;
+        justify-content: flex-start;
     }
-    .agenda-stamp {
-        max-width: 70px;
+
+    /* Salon et costume : mêmes dimensions exactes */
+    .agenda-logo {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
         cursor: pointer;
         transition: transform 0.3s;
     }
-    .agenda-stamp:hover { transform: scale(1.1); }
-    .agenda-stamp img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+
+    .agenda-logo:hover {
+        transform: scale(1.1);
+    }
+
+    /* Costume en cercle */
+    .agenda-logo.round {
         border-radius: 50%;
     }
 
-    /* =========================
-       MODAL VIDEO
-    ========================= */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 200;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.85);
-        justify-content: center;
-        align-items: center;
-    }
-    .modal-content {
-        position: relative;
-        max-width: 90%;
-        width: 300px;
-    }
-    .modal-content video {
-        width: 100%;
-        height: auto;
-        border-radius: 12px;
-    }
-    .close {
-        position: absolute;
-        top: -10px;
-        right: -10px;
-        font-size: 24px;
-        font-weight: bold;
-        color: #fff;
-        cursor: pointer;
-    }
-
-    /* =========================
-       FLOATING AGENDA BUTTON (si utilisé)
-    ========================= */
-    .agenda-float {
-        display: block;
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateY(0);
-    }
-}
-.home-hero {
+    /* HERO BACKGROUND */
+    .home-hero {
         background: url("images/fond_agenda_mobile.png") center center no-repeat;
         background-size: contain;
         position: relative;
         overflow: hidden;
     }
+}
